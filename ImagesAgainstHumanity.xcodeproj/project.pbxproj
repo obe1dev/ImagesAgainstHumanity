@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */; };
-		4762B8EA1C8E36AA0008BBD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8E91C8E36AA0008BBD3 /* ViewController.swift */; };
 		4762B8ED1C8E36AA0008BBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8EB1C8E36AA0008BBD3 /* Main.storyboard */; };
 		4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */; };
 		4762B8F21C8E36AA0008BBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */; };
 		4762B8F51C8E36AA0008BBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */; };
 		4762B9001C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8FF1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift */; };
+		4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */; };
+		4762B90F1C8E380E0008BBD3 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */; };
+		4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */; };
+		4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */; };
+		4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9481C97349F0008BBD3 /* WinnerViewController.swift */; };
+		4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */; };
+		4762B94D1C9750D40008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */; };
+		4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +36,6 @@
 /* Begin PBXFileReference section */
 		4762B8E41C8E36AA0008BBD3 /* ImagesAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagesAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4762B8E91C8E36AA0008BBD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4762B8EC1C8E36AA0008BBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4762B8EF1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagesAgainstHumanity.xcdatamodel; sourceTree = "<group>"; };
 		4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +44,14 @@
 		4762B8FB1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImagesAgainstHumanityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4762B8FF1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesAgainstHumanityTests.swift; sourceTree = "<group>"; };
 		4762B9011C8E36AA0008BBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewController.swift; sourceTree = "<group>"; };
+		4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSAlertView.swift; path = ../JSSAlertView.swift; sourceTree = "<group>"; };
+		4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCaptionTableViewController.swift; sourceTree = "<group>"; };
+		4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTableViewCell.swift; sourceTree = "<group>"; };
+		4762B9481C97349F0008BBD3 /* WinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewController.swift; sourceTree = "<group>"; };
+		4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeCollectionViewCell.swift; path = ../ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */,
-				4762B8E91C8E36AA0008BBD3 /* ViewController.swift */,
+				4762B9441C9117D90008BBD3 /* Model */,
+				4762B9461C972E0D0008BBD3 /* Controllers */,
+				4762B9471C972E340008BBD3 /* Views */,
+				4762B9451C972DFD0008BBD3 /* View Controllers */,
 				4762B8EB1C8E36AA0008BBD3 /* Main.storyboard */,
 				4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */,
 				4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */,
@@ -97,6 +114,42 @@
 				4762B9011C8E36AA0008BBD3 /* Info.plist */,
 			);
 			path = ImagesAgainstHumanityTests;
+			sourceTree = "<group>";
+		};
+		4762B9441C9117D90008BBD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4762B9451C972DFD0008BBD3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */,
+				4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */,
+				4762B9481C97349F0008BBD3 /* WinnerViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4762B9461C972E0D0008BBD3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4762B9471C972E340008BBD3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */,
+				4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */,
+				4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */,
+				4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */,
+				4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4762B90F1C8E380E0008BBD3 /* JSSAlertView.swift in Sources */,
+				4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */,
 				4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
-				4762B8EA1C8E36AA0008BBD3 /* ViewController.swift in Sources */,
+				4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */,
+				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
+				4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */,
 				4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */,
+				4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */,
+				4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */,
+				4762B94D1C9750D40008BBD3 /* ThemeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

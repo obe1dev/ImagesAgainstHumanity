@@ -1,25 +1,272 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hcW-sb-uvV">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Pick Theme-->
+        <scene sceneID="oJD-km-usR">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <collectionViewController id="mrZ-OG-PkU" customClass="ThemeCollectionViewController" customModule="ImagesAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="2FX-Ll-gwd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syc-W5-CL7">
+                            <size key="itemSize" width="117" height="136"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="themeCell" id="fCf-Co-IHr" customClass="ThemeCollectionViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="20" y="84" width="100" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cIv-AT-d7c">
+                                            <rect key="frame" x="8" y="8" width="84" height="124"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-bb-m6Y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="104"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="BaA-2F-htL"/>
+                                                        <constraint firstAttribute="height" constant="104" id="SGk-ni-ab2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sw-Ft-ZxO">
+                                                    <rect key="frame" x="0.0" y="104" width="84" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="cIv-AT-d7c" firstAttribute="leading" secondItem="fCf-Co-IHr" secondAttribute="leadingMargin" id="PPB-Cl-iS3"/>
+                                    <constraint firstItem="cIv-AT-d7c" firstAttribute="top" secondItem="fCf-Co-IHr" secondAttribute="topMargin" id="TKW-zB-vQa"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="cIv-AT-d7c" secondAttribute="bottom" id="X5B-JT-kh0"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="cIv-AT-d7c" secondAttribute="trailing" id="XNW-QH-kV2"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="140"/>
+                                <connections>
+                                    <outlet property="themeImage" destination="nbP-bb-m6Y" id="LCD-mG-MNv"/>
+                                    <outlet property="themeLabel" destination="5Sw-Ft-ZxO" id="IRz-xX-IyV"/>
+                                    <segue destination="cVn-35-W82" kind="show" id="ax2-UV-fjm"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="mrZ-OG-PkU" id="ixg-H6-eNM"/>
+                            <outlet property="delegate" destination="mrZ-OG-PkU" id="qTz-U3-RIn"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Pick Theme" id="vkb-H9-D2n">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="fBT-TP-nlp">
+                            <connections>
+                                <action selector="alertView:" destination="mrZ-OG-PkU" id="CUS-6B-zC6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIa-XP-7ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1139" y="437"/>
+        </scene>
+        <!--Pick Caption-->
+        <scene sceneID="W2z-Vl-poN">
+            <objects>
+                <tableViewController id="FRG-m5-fkb" customClass="PickCaptionTableViewController" customModule="ImagesAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LV3-n7-Gn3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="JTn-bC-zSc" userLabel="ImageView">
+                            <rect key="frame" x="0.0" y="64" width="600" height="187"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIX-z6-UP2">
+                                    <rect key="frame" x="8" y="8" width="584" height="171"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="tIX-z6-UP2" secondAttribute="bottom" constant="8" id="M9n-lW-xbU"/>
+                                <constraint firstAttribute="trailing" secondItem="tIX-z6-UP2" secondAttribute="trailing" constant="8" id="MjV-zN-w7y"/>
+                                <constraint firstItem="tIX-z6-UP2" firstAttribute="centerX" secondItem="JTn-bC-zSc" secondAttribute="centerX" id="Orj-hp-IJJ"/>
+                                <constraint firstItem="tIX-z6-UP2" firstAttribute="top" secondItem="JTn-bC-zSc" secondAttribute="top" constant="8" id="SlK-m4-MGE"/>
+                                <constraint firstItem="tIX-z6-UP2" firstAttribute="leading" secondItem="JTn-bC-zSc" secondAttribute="leading" constant="8" id="z7Y-er-xdo"/>
+                            </constraints>
+                        </view>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Cwg-JJ-FcR">
+                            <rect key="frame" x="0.0" y="367" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="EFs-et-RqC"/>
+                                <barButtonItem title="submit" id="arX-hV-iqc"/>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="Era-TH-8bc"/>
+                            </items>
+                        </toolbar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="phraseCell" id="f2m-GV-6c8" customClass="PhraseTableViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="279" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f2m-GV-6c8" id="EB2-pB-Y1f">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hri-hD-7Uq">
+                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCaptionCell" id="eMI-OY-Kyg" customClass="CaptionTableViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="323" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMI-OY-Kyg" id="U21-v1-yCG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to add your caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-uG-bpn">
+                                            <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FRG-m5-fkb" id="pLs-ES-gaz"/>
+                            <outlet property="delegate" destination="FRG-m5-fkb" id="wbQ-1u-tdz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pick Caption" id="47l-RQ-YIN">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="Qkv-FV-oeu"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQg-P4-Ob9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139" y="1110"/>
+        </scene>
+        <!--Select Winner-->
+        <scene sceneID="BDr-KB-BjR">
+            <objects>
+                <viewController id="Ja7-tH-R04" customClass="WinnerViewController" customModule="ImagesAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8z6-id-Vfs"/>
+                        <viewControllerLayoutGuide type="bottom" id="FOf-11-XYF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XfW-RJ-JBG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-sN-wrB">
+                                <rect key="frame" x="273" y="511" width="54" height="30"/>
+                                <state key="normal" title="Winner!"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-2C-hxp">
+                                <rect key="frame" x="0.0" y="281" width="600" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3q4-wP-eiR">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="winnerCell" id="MdM-u9-9qE" customClass="WinnerCollectionViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ja7-tH-R04" id="rfB-Re-v0u"/>
+                                    <outlet property="delegate" destination="Ja7-tH-R04" id="cEj-jB-nv6"/>
+                                </connections>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sw5-Ss-qKC">
+                                <rect key="frame" x="180" y="97" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Winner" id="v43-hy-g0p">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="YqC-MZ-Jad"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Na-mD-MNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1139" y="1782"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZrK-z9-xeY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hcW-sb-uvV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ozk-DS-8ij">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mrZ-OG-PkU" kind="relationship" relationship="rootViewController" id="X65-lT-Yen"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWu-eg-3uO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="437"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="B1I-YQ-HrI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cVn-35-W82" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="05w-L6-uI5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FRG-m5-fkb" kind="relationship" relationship="rootViewController" id="rAf-DS-XtR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAI-Dd-smw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="1110"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zwb-sm-lVP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="29D-wN-xa2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5YU-eR-M4b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ja7-tH-R04" kind="relationship" relationship="rootViewController" id="oeJ-Qg-0Gy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAe-aB-Dm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="1782"/>
         </scene>
     </scenes>
 </document>
