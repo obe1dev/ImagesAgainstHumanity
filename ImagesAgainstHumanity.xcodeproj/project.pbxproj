@@ -14,13 +14,13 @@
 		4762B8F51C8E36AA0008BBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */; };
 		4762B9001C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8FF1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift */; };
 		4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */; };
-		4762B90F1C8E380E0008BBD3 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */; };
 		4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */; };
 		4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */; };
 		4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9481C97349F0008BBD3 /* WinnerViewController.swift */; };
 		4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */; };
-		4762B94D1C9750D40008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */; };
 		4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */; };
+		4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9541C976F0E0008BBD3 /* JSSAlertView.swift */; };
+		4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +45,13 @@
 		4762B8FF1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesAgainstHumanityTests.swift; sourceTree = "<group>"; };
 		4762B9011C8E36AA0008BBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewController.swift; sourceTree = "<group>"; };
-		4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSSAlertView.swift; path = ../JSSAlertView.swift; sourceTree = "<group>"; };
 		4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickCaptionTableViewController.swift; sourceTree = "<group>"; };
 		4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionTableViewCell.swift; sourceTree = "<group>"; };
 		4762B9481C97349F0008BBD3 /* WinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewController.swift; sourceTree = "<group>"; };
 		4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerCollectionViewCell.swift; sourceTree = "<group>"; };
-		4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeCollectionViewCell.swift; path = ../ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseTableViewCell.swift; sourceTree = "<group>"; };
+		4762B9541C976F0E0008BBD3 /* JSSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSAlertView.swift; sourceTree = "<group>"; };
+		4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +143,8 @@
 		4762B9471C972E340008BBD3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4762B90E1C8E380E0008BBD3 /* JSSAlertView.swift */,
-				4762B94C1C9750D40008BBD3 /* ThemeCollectionViewCell.swift */,
+				4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */,
+				4762B9541C976F0E0008BBD3 /* JSSAlertView.swift */,
 				4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */,
 				4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */,
 				4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */,
@@ -253,16 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4762B90F1C8E380E0008BBD3 /* JSSAlertView.swift in Sources */,
 				4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */,
 				4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
 				4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */,
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
 				4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */,
 				4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */,
+				4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */,
 				4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */,
+				4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */,
 				4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */,
-				4762B94D1C9750D40008BBD3 /* ThemeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
