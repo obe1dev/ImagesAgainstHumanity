@@ -10,6 +10,8 @@ import UIKit
 
 class PhraseTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var phraseLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

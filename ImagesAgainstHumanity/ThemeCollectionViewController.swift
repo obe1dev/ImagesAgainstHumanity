@@ -45,7 +45,24 @@ class ThemeCollectionViewController: UICollectionViewController{
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
+        
+        
+        if let cell = sender as? UICollectionViewCell{
+            if let indexPath = collectionView!.indexPathForCell(cell){
+                
+                let theme = themesImages[indexPath.row]
+               
+                let destinationViewController = segue.destinationViewController as? PickCaptionTableViewController
+  // this is not working not 
+                destinationViewController?.theme = theme
+                
+            }
+        }
+        
+        
+        
         // Pass the selected object to the new view controller.
+        
     }
     
 
@@ -54,19 +71,25 @@ class ThemeCollectionViewController: UICollectionViewController{
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return themelables.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ThemeCollectionViewCell
         
-        cell.themeImage.image = UIImage(named: "FunnyPic")
-        cell.themeLabel.text = "hi"
+        let nameImage = themesImages[indexPath.row]
+        let nameLabel = themelables[indexPath.row]
+        
+        cell.themeImage.image = UIImage(named: nameImage)
+        cell.themeLabel.text = nameLabel
         // Configure the cell
         
     
         return cell
     }
+    
+    let themesImages = ["FunnyPic","Spongebob"]
+    let themelables = ["fat guy", "Sopngebob"]
 
     // MARK: UICollectionViewDelegate
 

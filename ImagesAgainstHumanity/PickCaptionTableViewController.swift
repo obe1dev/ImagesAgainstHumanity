@@ -9,7 +9,12 @@
 import UIKit
 
 class PickCaptionTableViewController: UITableViewController {
-
+    
+    var theme: String!
+    var phrases = []
+    
+    @IBOutlet weak var captionImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +23,23 @@ class PickCaptionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if theme != nil {
+            captionImage.image = UIImage(named: theme)
+        }
+        
+        switch theme {
+        case "FunnyPic":
+            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
+            return
+        case "Spongebob":
+            phrases = ["i dont think were in utah","hold me","lol","cool","its working"]
+            return
+        default:
+            return
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,14 +57,25 @@ class PickCaptionTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell", forIndexPath: indexPath)
-
         
+        
+        //this will send the pre-built captions
+        let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell", forIndexPath: indexPath) as! PhraseTableViewCell
+        
+        cell.phraseLabel.text = phrases[indexPath.row] as? String
+        
+//        if indexPath.row == 4 {
+//        
+//            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell", forIndexPath: indexPath) as! CaptionTableViewCell
+//            return cell
+//        }
+       
         
         return cell
+        
     }
     
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

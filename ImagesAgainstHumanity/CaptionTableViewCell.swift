@@ -10,6 +10,8 @@ import UIKit
 
 class CaptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var captionText: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
