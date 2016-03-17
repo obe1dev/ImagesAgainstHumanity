@@ -10,10 +10,16 @@ import UIKit
 
 class PickCaptionTableViewController: UITableViewController {
     
-    var theme: String!
+    
+    
+    var theme = ""
     var phrases = []
+    var winnerArray = [String]()
+    var captionPicked = ""
     
     @IBOutlet weak var captionImage: UIImageView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +30,7 @@ class PickCaptionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        if theme != nil {
+        if theme != "" {
             captionImage.image = UIImage(named: theme)
         }
         
@@ -36,6 +42,8 @@ class PickCaptionTableViewController: UITableViewController {
             phrases = ["i dont think were in utah","hold me","lol","cool","its working"]
             return
         default:
+            captionImage.image = UIImage(named: "FunnyPic")
+            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
             return
         }
         
@@ -48,10 +56,15 @@ class PickCaptionTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+//        return section == 0 ? 5 : 0
         return 5
     }
 
@@ -62,19 +75,74 @@ class PickCaptionTableViewController: UITableViewController {
         //this will send the pre-built captions
         let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell", forIndexPath: indexPath) as! PhraseTableViewCell
         
-        cell.phraseLabel.text = phrases[indexPath.row] as? String
+        if indexPath.row < 4 {
         
-//        if indexPath.row == 4 {
-//        
-//            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell", forIndexPath: indexPath) as! CaptionTableViewCell
-//            return cell
-//        }
+        cell.phraseLabel.text = phrases[indexPath.row] as? String
+            
+            return cell
+        } else {
+        
+            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell", forIndexPath: indexPath) as! CaptionTableViewCell
+            cell.captionText.placeholder = "Add your caption here"
+            
+            return cell
+        }
        
         
-        return cell
+
         
     }
     
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let footerView = UIView()
+        
+        footerView.backgroundColor = UIColor.clearColor()
+        
+        return footerView
+        
+    }
+    
+    //MARK: Custom Alert View
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == phrases.count - 1 {
+            
+        } else {
+        
+        let aletView = JSSAlertView()
+        
+        captionPicked = phrases[indexPath.row] as! String
+        
+        aletView.show(self, title: "Pass or End", text: "If there is another player, pass the to them. Or press End to end the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
+        aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
+        
+        aletView.addAction(addCaptionToWinnerArray)
+        aletView.addCancelAction(endRound)
+            
+        }
+        
+        
+    }
+    
+    func addCaptionToWinnerArray() ->Void {
+        
+       winnerArray.append(captionPicked)
+        
+    }
+    
+    func endRound() ->Void {
+        
+        captionImage.image = UIImage(named: theme)
+        
+        addCaptionToWinnerArray()
+        performSegueWithIdentifier("toWinner", sender: self)
+        
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -111,14 +179,24 @@ class PickCaptionTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if let cell = sender as? UITableViewCell{
+            if let _ = tableView!.indexPathForCell(cell){
+                
+                _ = segue.destinationViewController as! PassOrPlayViewController
+                
+                
+            }
+        }
+        
     }
     */
+    
 
 }

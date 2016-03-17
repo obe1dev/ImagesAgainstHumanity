@@ -21,6 +21,8 @@
 		4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */; };
 		4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9541C976F0E0008BBD3 /* JSSAlertView.swift */; };
 		4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */; };
+		4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */; };
+		4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhraseTableViewCell.swift; sourceTree = "<group>"; };
 		4762B9541C976F0E0008BBD3 /* JSSAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSAlertView.swift; sourceTree = "<group>"; };
 		4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassOrPlayViewController.swift; sourceTree = "<group>"; };
+		4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 				4762B90C1C8E37450008BBD3 /* ThemeCollectionViewController.swift */,
 				4762B9121C8E491A0008BBD3 /* PickCaptionTableViewController.swift */,
 				4762B9481C97349F0008BBD3 /* WinnerViewController.swift */,
+				4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				4762B9141C8E49560008BBD3 /* CaptionTableViewCell.swift */,
 				4762B9521C9769150008BBD3 /* PhraseTableViewCell.swift */,
 				4762B94A1C9736910008BBD3 /* WinnerCollectionViewCell.swift */,
+				4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -254,6 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */,
+				4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */,
+				4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */,
 				4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
 				4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */,
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,

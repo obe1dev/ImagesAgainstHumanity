@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CaptionTableViewCell: UITableViewCell {
+class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var captionText: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.captionText.delegate = self
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -22,5 +23,11 @@ class CaptionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        captionText.resignFirstResponder()
+        return true
+    }
+    
 
 }

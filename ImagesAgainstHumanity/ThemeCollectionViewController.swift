@@ -11,6 +11,8 @@ import UIKit
 private let reuseIdentifier = "themeCell"
 
 class ThemeCollectionViewController: UICollectionViewController{
+    
+    @ IBAction func unwindTofirst(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,7 @@ class ThemeCollectionViewController: UICollectionViewController{
         
         let alertView = JSSAlertView();
         
-        alertView.show(self, title: "test", text: "Body text test", buttonText: "action", cancelButtonText: "Cancle", color: UIColor.orangeColor())
+        alertView.show(self, title: "test", text: "Body text test", buttonText: "action", cancelButtonText: "Cancel", color: UIColor.orangeColor())
         alertView.setTextTheme(JSSAlertView.TextColorTheme.Light)
         
          
@@ -47,12 +49,15 @@ class ThemeCollectionViewController: UICollectionViewController{
         // Get the new view controller using [segue destinationViewController].
         
         
+        
         if let cell = sender as? UICollectionViewCell{
             if let indexPath = collectionView!.indexPathForCell(cell){
                 
                 let theme = themesImages[indexPath.row]
                
                 let destinationViewController = segue.destinationViewController as? PickCaptionTableViewController
+                
+                _ = destinationViewController?.view
   // this is not working not 
                 destinationViewController?.theme = theme
                 
