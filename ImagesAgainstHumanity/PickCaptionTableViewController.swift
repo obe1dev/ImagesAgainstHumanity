@@ -30,6 +30,8 @@ class PickCaptionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        tableView.tableFooterView = UIView()
+        
         if theme != "" {
             captionImage.image = UIImage(named: theme)
         }
@@ -65,7 +67,7 @@ class PickCaptionTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 //        return section == 0 ? 5 : 0
-        return 5
+        return phrases.count + 1
     }
 
     
@@ -73,16 +75,16 @@ class PickCaptionTableViewController: UITableViewController {
         
         
         //this will send the pre-built captions
-        let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell", forIndexPath: indexPath) as! PhraseTableViewCell
         
-        if indexPath.row < 4 {
+        if indexPath.row < phrases.count {
+            let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell") as! PhraseTableViewCell
         
-        cell.phraseLabel.text = phrases[indexPath.row] as? String
+            cell.phraseLabel.text = phrases[indexPath.row] as? String
             
             return cell
         } else {
         
-            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell", forIndexPath: indexPath) as! CaptionTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell") as! CaptionTableViewCell
             cell.captionText.placeholder = "Add your caption here"
             
             return cell
@@ -93,36 +95,36 @@ class PickCaptionTableViewController: UITableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50.0
-    }
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let footerView = UIView()
-        
-        footerView.backgroundColor = UIColor.clearColor()
-        
-        return footerView
-        
-    }
+//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 50.0
+//    }
+//    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        
+//        let footerView = UIView()
+//        
+//        footerView.backgroundColor = UIColor.clearColor()
+//        
+//        return footerView
+//        
+//    }
     
     //MARK: Custom Alert View
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.row == phrases.count - 1 {
-            
+        if indexPath.row == phrases.count {
+            print("selected text field cell")
         } else {
         
-        let aletView = JSSAlertView()
-        
-        captionPicked = phrases[indexPath.row] as! String
-        
-        aletView.show(self, title: "Pass or End", text: "If there is another player, pass the to them. Or press End to end the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
-        aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
-        
-        aletView.addAction(addCaptionToWinnerArray)
-        aletView.addCancelAction(endRound)
+            let aletView = JSSAlertView()
+            
+            captionPicked = phrases[indexPath.row] as! String
+            
+            aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
+            aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
+            
+            aletView.addAction(addCaptionToWinnerArray)
+            aletView.addCancelAction(endRound)
             
         }
         

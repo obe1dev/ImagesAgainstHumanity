@@ -335,7 +335,7 @@ class JSSAlertView: UIViewController {
         dismissButton.addSubview(buttonLabel)
         
         // Second cancel button
-        if let btnText = cancelButtonText {
+        if let _ = cancelButtonText {
             self.cancelButton = UIButton()
             let buttonColor = UIImage.withColor(adjustBrightness(baseColor!, amount: 0.8))
             let buttonHighlightColor = UIImage.withColor(adjustBrightness(baseColor!, amount: 0.9))

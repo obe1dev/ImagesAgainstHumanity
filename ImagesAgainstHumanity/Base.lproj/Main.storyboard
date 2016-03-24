@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Nip-8I-mST">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hcW-sb-uvV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -59,7 +59,7 @@
                                 <connections>
                                     <outlet property="themeImage" destination="nbP-bb-m6Y" id="LCD-mG-MNv"/>
                                     <outlet property="themeLabel" destination="5Sw-Ft-ZxO" id="IRz-xX-IyV"/>
-                                    <segue destination="Nip-8I-mST" kind="show" id="Tac-9N-P1e"/>
+                                    <segue destination="Mbh-t5-phq" kind="show" id="qXz-Rj-0dW"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -192,93 +192,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t7N-z4-3V0">
-                                <rect key="frame" x="0.0" y="72" width="600" height="508"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="h5o-mC-BRE">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="h5o-mC-BRE">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="453"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGE-7g-doO" userLabel="Image View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sw5-Ss-qKC">
-                                                <rect key="frame" x="8" y="0.0" width="584" height="225"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sw5-Ss-qKC">
+                                                <rect key="frame" x="8" y="8" width="584" height="251"/>
                                             </imageView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-2C-hxp">
-                                                <rect key="frame" x="0.0" y="228" width="600" height="225"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3q4-wP-eiR" customClass="CenterCellCollectionView" customModule="ImagesAgainstHumanity" customModuleProvider="target">
-                                                    <size key="itemSize" width="181" height="181.5"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="winnerCell" id="MdM-u9-9qE" customClass="WinnerCollectionViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="22" width="181" height="181.5"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="181.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb5-zn-4ic">
-                                                                    <rect key="frame" x="8" y="8" width="165" height="165.5"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                </textView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </view>
-                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <connections>
-                                                            <outlet property="winnerTextView" destination="cb5-zn-4ic" id="jVK-75-BLT"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="Ja7-tH-R04" id="rfB-Re-v0u"/>
-                                                    <outlet property="delegate" destination="Ja7-tH-R04" id="cEj-jB-nv6"/>
-                                                </connections>
-                                            </collectionView>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="zNM-2C-hxp" secondAttribute="bottom" id="8tP-C4-Ook"/>
-                                            <constraint firstItem="Sw5-Ss-qKC" firstAttribute="leading" secondItem="h5o-mC-BRE" secondAttribute="leading" constant="8" id="OF3-eP-8nr"/>
-                                            <constraint firstItem="Sw5-Ss-qKC" firstAttribute="top" secondItem="h5o-mC-BRE" secondAttribute="top" id="Ymi-sC-g0e"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sw5-Ss-qKC" secondAttribute="trailing" constant="8" id="kax-Hr-Mkl"/>
-                                            <constraint firstItem="zNM-2C-hxp" firstAttribute="leading" secondItem="h5o-mC-BRE" secondAttribute="leading" id="oNp-fB-Njh"/>
-                                            <constraint firstAttribute="trailing" secondItem="zNM-2C-hxp" secondAttribute="trailing" id="t7f-Xz-kcV"/>
+                                            <constraint firstItem="Sw5-Ss-qKC" firstAttribute="top" secondItem="mGE-7g-doO" secondAttribute="top" constant="8" id="C26-Bl-JZ7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sw5-Ss-qKC" secondAttribute="trailing" constant="8" id="XWE-0E-jPT"/>
+                                            <constraint firstItem="Sw5-Ss-qKC" firstAttribute="leading" secondItem="mGE-7g-doO" secondAttribute="leading" constant="8" id="krw-wy-DnJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sw5-Ss-qKC" secondAttribute="bottom" constant="8" id="uWn-Iv-UuD"/>
                                         </constraints>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-sN-wrB">
-                                        <rect key="frame" x="250" y="461" width="100" height="47"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Winner!"/>
+                                    </view>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-2C-hxp">
+                                        <rect key="frame" x="0.0" y="270" width="600" height="267"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3q4-wP-eiR" customClass="CenterCellCollectionView" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                            <size key="itemSize" width="180" height="224"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="winnerCell" id="MdM-u9-9qE" customClass="WinnerCollectionViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="21.5" width="180" height="224"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="224"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb5-zn-4ic">
+                                                            <rect key="frame" x="8" y="8" width="165" height="208"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="winnerTextView" destination="cb5-zn-4ic" id="jVK-75-BLT"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
                                         <connections>
-                                            <action selector="winnerButton:" destination="Ja7-tH-R04" eventType="touchUpInside" id="XzP-YE-QYc"/>
+                                            <outlet property="dataSource" destination="Ja7-tH-R04" id="rfB-Re-v0u"/>
+                                            <outlet property="delegate" destination="Ja7-tH-R04" id="cEj-jB-nv6"/>
                                         </connections>
-                                    </button>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="h5o-mC-BRE" firstAttribute="top" secondItem="t7N-z4-3V0" secondAttribute="top" id="AYA-hG-nSK"/>
-                                    <constraint firstAttribute="trailing" secondItem="h5o-mC-BRE" secondAttribute="trailing" id="EMW-dv-RUz"/>
-                                    <constraint firstItem="h5o-mC-BRE" firstAttribute="leading" secondItem="t7N-z4-3V0" secondAttribute="leading" id="RB5-al-Bxf"/>
+                                    <constraint firstAttribute="trailing" secondItem="mGE-7g-doO" secondAttribute="trailing" id="1k7-Dw-nYb"/>
+                                    <constraint firstAttribute="bottom" secondItem="zNM-2C-hxp" secondAttribute="bottom" id="8tP-C4-Ook"/>
+                                    <constraint firstItem="mGE-7g-doO" firstAttribute="top" secondItem="h5o-mC-BRE" secondAttribute="top" id="Dh2-HR-RbW"/>
+                                    <constraint firstItem="mGE-7g-doO" firstAttribute="leading" secondItem="h5o-mC-BRE" secondAttribute="leading" id="jbh-K7-eEz"/>
+                                    <constraint firstItem="zNM-2C-hxp" firstAttribute="leading" secondItem="h5o-mC-BRE" secondAttribute="leading" id="oNp-fB-Njh"/>
+                                    <constraint firstAttribute="trailing" secondItem="zNM-2C-hxp" secondAttribute="trailing" id="t7f-Xz-kcV"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FOf-11-XYF" firstAttribute="top" secondItem="t7N-z4-3V0" secondAttribute="bottom" constant="20" id="BS0-is-xIC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="t7N-z4-3V0" secondAttribute="trailing" constant="-20" id="f0a-ct-eqP"/>
-                            <constraint firstItem="t7N-z4-3V0" firstAttribute="leading" secondItem="XfW-RJ-JBG" secondAttribute="leadingMargin" constant="-20" id="lPx-Rn-ywd"/>
-                            <constraint firstItem="t7N-z4-3V0" firstAttribute="top" secondItem="8z6-id-Vfs" secondAttribute="bottom" constant="8" id="tsB-o6-G2P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h5o-mC-BRE" secondAttribute="trailing" constant="-20" id="0jm-zT-C5M"/>
+                            <constraint firstItem="FOf-11-XYF" firstAttribute="top" secondItem="h5o-mC-BRE" secondAttribute="bottom" id="OfD-bR-xOM"/>
+                            <constraint firstItem="h5o-mC-BRE" firstAttribute="top" secondItem="8z6-id-Vfs" secondAttribute="bottom" id="h04-hd-tNx"/>
+                            <constraint firstItem="h5o-mC-BRE" firstAttribute="leading" secondItem="XfW-RJ-JBG" secondAttribute="leadingMargin" constant="-20" id="qSv-yF-fsU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Winner" id="v43-hy-g0p"/>
+                    <navigationItem key="navigationItem" title="Select Winner" id="v43-hy-g0p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="dkq-lD-vsi">
+                            <connections>
+                                <segue destination="Bm0-ZT-XTO" kind="unwind" unwindAction="unwindTofirst:" id="T9W-o9-HFS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="zNM-2C-hxp" id="8CM-C7-6y6"/>
                         <outlet property="winnerThemeImage" destination="Sw5-Ss-qKC" id="rej-AN-FNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Na-mD-MNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Bm0-ZT-XTO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1139" y="2012"/>
         </scene>
@@ -337,4 +338,7 @@
             <point key="canvasLocation" x="468" y="1204"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fUS-SY-Ayh"/>
+    </inferredMetricsTieBreakers>
 </document>

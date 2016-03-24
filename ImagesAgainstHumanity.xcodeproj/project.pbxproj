@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471116641C9A446B00C3FFA1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471116631C9A446B00C3FFA1 /* Theme.swift */; };
+		475F3B8A1CA1F7760040FF73 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B891CA1F7760040FF73 /* libicucore.tbd */; };
+		475F3B8C1CA1F78E0040FF73 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B8B1CA1F78E0040FF73 /* libc++.tbd */; };
+		475F3B8E1CA1F79C0040FF73 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B8D1CA1F79C0040FF73 /* CFNetwork.framework */; };
+		475F3B901CA1F7A80040FF73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B8F1CA1F7A80040FF73 /* Security.framework */; };
+		475F3B921CA1F7C40040FF73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B911CA1F7C40040FF73 /* SystemConfiguration.framework */; };
+		475F3B951CA1F96E0040FF73 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F3B941CA1F96E0040FF73 /* Firebase.framework */; };
+		475F3B971CA1FC200040FF73 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F3B961CA1FC200040FF73 /* FirebaseController.swift */; };
+		475F3B991CA32DC90040FF73 /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F3B981CA32DC90040FF73 /* ThemeController.swift */; };
 		4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */; };
 		4762B8ED1C8E36AA0008BBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8EB1C8E36AA0008BBD3 /* Main.storyboard */; };
 		4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */; };
@@ -36,6 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		471116631C9A446B00C3FFA1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		475F3B891CA1F7760040FF73 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		475F3B8B1CA1F78E0040FF73 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		475F3B8D1CA1F79C0040FF73 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		475F3B8F1CA1F7A80040FF73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		475F3B911CA1F7C40040FF73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		475F3B941CA1F96E0040FF73 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		475F3B961CA1FC200040FF73 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		475F3B981CA32DC90040FF73 /* ThemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeController.swift; sourceTree = "<group>"; };
 		4762B8E41C8E36AA0008BBD3 /* ImagesAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagesAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4762B8EC1C8E36AA0008BBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475F3B921CA1F7C40040FF73 /* SystemConfiguration.framework in Frameworks */,
+				475F3B951CA1F96E0040FF73 /* Firebase.framework in Frameworks */,
+				475F3B901CA1F7A80040FF73 /* Security.framework in Frameworks */,
+				475F3B8E1CA1F79C0040FF73 /* CFNetwork.framework in Frameworks */,
+				475F3B8C1CA1F78E0040FF73 /* libc++.tbd in Frameworks */,
+				475F3B8A1CA1F7760040FF73 /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +100,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		475F3B931CA1F7D40040FF73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				475F3B941CA1F96E0040FF73 /* Firebase.framework */,
+				475F3B911CA1F7C40040FF73 /* SystemConfiguration.framework */,
+				475F3B8F1CA1F7A80040FF73 /* Security.framework */,
+				475F3B8D1CA1F79C0040FF73 /* CFNetwork.framework */,
+				475F3B8B1CA1F78E0040FF73 /* libc++.tbd */,
+				475F3B891CA1F7760040FF73 /* libicucore.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4762B8DB1C8E36AA0008BBD3 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +144,7 @@
 				4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */,
 				4762B8F61C8E36AA0008BBD3 /* Info.plist */,
 				4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */,
+				475F3B931CA1F7D40040FF73 /* Frameworks */,
 			);
 			path = ImagesAgainstHumanity;
 			sourceTree = "<group>";
@@ -123,6 +161,7 @@
 		4762B9441C9117D90008BBD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				471116631C9A446B00C3FFA1 /* Theme.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -141,6 +180,8 @@
 		4762B9461C972E0D0008BBD3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				475F3B961CA1FC200040FF73 /* FirebaseController.swift */,
+				475F3B981CA32DC90040FF73 /* ThemeController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -267,6 +308,9 @@
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
 				4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */,
 				4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */,
+				475F3B991CA32DC90040FF73 /* ThemeController.swift in Sources */,
+				475F3B971CA1FC200040FF73 /* FirebaseController.swift in Sources */,
+				471116641C9A446B00C3FFA1 /* Theme.swift in Sources */,
 				4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */,
 				4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */,
 				4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */,
@@ -399,6 +443,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ImagesAgainstHumanity",
+				);
 				INFOPLIST_FILE = ImagesAgainstHumanity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brockoberhansley.ImagesAgainstHumanity;
@@ -410,6 +458,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ImagesAgainstHumanity",
+				);
 				INFOPLIST_FILE = ImagesAgainstHumanity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brockoberhansley.ImagesAgainstHumanity;
@@ -460,6 +512,7 @@
 				4762B9061C8E36AA0008BBD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4762B9071C8E36AA0008BBD3 /* Build configuration list for PBXNativeTarget "ImagesAgainstHumanityTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +521,7 @@
 				4762B9091C8E36AA0008BBD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -12,18 +12,20 @@ private let reuseIdentifier = "themeCell"
 
 class ThemeCollectionViewController: UICollectionViewController{
     
+    let themes = ThemeController.sharedInstance.themeNames
+    //let themesImages = ["FunnyPic","Spongebob"]
+    var themelables = [Theme]()
+
+    
     @ IBAction func unwindTofirst(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        _ = ThemeController.fetchAllThemes()
+        themelables = themes
 
-        // Register cell classes
-       // self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,13 +55,13 @@ class ThemeCollectionViewController: UICollectionViewController{
         if let cell = sender as? UICollectionViewCell{
             if let indexPath = collectionView!.indexPathForCell(cell){
                 
-                let theme = themesImages[indexPath.row]
-               
+                //let theme = themesImages[indexPath.row]
+               let theme = themelables[indexPath.row]
                 let destinationViewController = segue.destinationViewController as? PickCaptionTableViewController
                 
                 _ = destinationViewController?.view
-  // this is not working not 
-                destinationViewController?.theme = theme
+  
+                destinationViewController?.theme = theme.themeTitle!
                 
             }
         }
@@ -76,26 +78,24 @@ class ThemeCollectionViewController: UICollectionViewController{
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return themelables.count
+        return themes.count
+        //return themelables.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ThemeCollectionViewCell
         
-        let nameImage = themesImages[indexPath.row]
+        //let nameImage = themesImages[indexPath.row]
         let nameLabel = themelables[indexPath.row]
         
-        cell.themeImage.image = UIImage(named: nameImage)
-        cell.themeLabel.text = nameLabel
+        //cell.themeImage.image = UIImage(named: nameImage)
+        cell.themeLabel.text = nameLabel.themeTitle
         // Configure the cell
         
     
         return cell
     }
     
-    let themesImages = ["FunnyPic","Spongebob"]
-    let themelables = ["fat guy", "Sopngebob"]
-
     // MARK: UICollectionViewDelegate
 
 
