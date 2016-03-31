@@ -14,31 +14,34 @@ class FirebaseController  {
     static let base = Firebase(url: "https://imagesagainsthumanit.firebaseio.com")
     
     //this will go and fetch all theme titles in firebase
-    static func getThemesTitle() {
+    static func getThemesTitle(completion: (data: AnyObject?) -> Void) {
         let theme = base.childByAppendingPath("themeNames")
         theme.observeEventType(.Value, withBlock: { (snapshot) in
             if snapshot.value is NSNull{
+                completion(data: nil)
                 NSLog("no info for snapshot")
             } else {
                 
-                if let themeTitle = snapshot.value as? [String] {
+                completion(data: snapshot.value)
                 
-                    for theme in themeTitle {
-                        
-                        let theme = Theme.init(themeTitle: theme)
-                        
-                        ThemeController.sharedInstance.themeNames.append(theme!)
-                        
-                        
-                    }
-                }
+//                if let themeTitle = snapshot.value as? [String] {
+//                
+//                    for theme in themeTitle {
+//                        
+//                        let theme = Theme.init(themeTitle: theme)
+//                        
+//                        ThemeController.sharedInstance.themeNames.append(theme!)
+//                        
+//                        
+//                    }
+//                }
             
             }
         })
     }
     
     // this will access a specific themes photo
-    static func getThemePhoto(themePicked: String) {
+    static func getTheme(themePicked: String) {
         
         let theme = base.childByAppendingPath(themePicked)
         theme.observeEventType(.Value, withBlock: { (snapshot) in

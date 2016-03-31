@@ -12,7 +12,7 @@ private let reuseIdentifier = "themeCell"
 
 class ThemeCollectionViewController: UICollectionViewController{
     
-    let themes = ThemeController.sharedInstance.themeNames
+    var themes = ThemeController.sharedInstance.themeNames
     //let themesImages = ["FunnyPic","Spongebob"]
     var themelables = [Theme]()
 
@@ -22,9 +22,15 @@ class ThemeCollectionViewController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _ = ThemeController.fetchAllThemes()
-        themelables = themes
-
+        _ = ThemeController.fetchAllThemes({ (success) in
+            if let _ = success {
+                self.themes = ThemeController.sharedInstance.themeNames
+                self.themelables = self.themes
+                self.collectionView?.reloadData()
+            }
+        })
+        
+        
         
     }
 

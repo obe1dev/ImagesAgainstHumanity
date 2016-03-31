@@ -16,9 +16,22 @@ class ThemeController {
     var themes = [Theme]()
     var themeNames = [Theme]()
     
-    static func fetchAllThemes(){
+    static func fetchAllThemes(completion: (success: Bool?) -> Void){
         
-        FirebaseController.getThemesTitle()
+        FirebaseController.getThemesTitle { (data) in
+            if let themeTitle = data as? [String] {
+                
+                for theme in themeTitle {
+                    
+                    let theme = Theme.init(themeTitle: theme)
+                    
+                    ThemeController.sharedInstance.themeNames.append(theme!)
+                    
+                    
+                }
+                completion(success: true)
+            }
+        }
         
     }
     
