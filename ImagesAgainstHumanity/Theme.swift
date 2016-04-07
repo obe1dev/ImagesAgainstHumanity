@@ -51,8 +51,5 @@ struct Theme {
     
 }
 
-/* model store selected image and phrases and current theme
- 
- */
 
 

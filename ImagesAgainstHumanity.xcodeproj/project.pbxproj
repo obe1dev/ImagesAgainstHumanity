@@ -32,6 +32,8 @@
 		4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */; };
 		4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */; };
 		4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */; };
+		4771AEFB1CB5FD480029B95E /* PickedCatagory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */; };
+		4771AEFD1CB5FF940029B95E /* PickedCatagoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassOrPlayViewController.swift; sourceTree = "<group>"; };
 		4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionView.swift; sourceTree = "<group>"; };
+		4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagory.swift; sourceTree = "<group>"; };
+		4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagoryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				471116631C9A446B00C3FFA1 /* Theme.swift */,
+				4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				475F3B961CA1FC200040FF73 /* FirebaseController.swift */,
 				475F3B981CA32DC90040FF73 /* ThemeController.swift */,
+				4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
 				4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */,
 				4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */,
+				4771AEFD1CB5FF940029B95E /* PickedCatagoryController.swift in Sources */,
 				475F3B991CA32DC90040FF73 /* ThemeController.swift in Sources */,
+				4771AEFB1CB5FD480029B95E /* PickedCatagory.swift in Sources */,
 				475F3B971CA1FC200040FF73 /* FirebaseController.swift in Sources */,
 				471116641C9A446B00C3FFA1 /* Theme.swift in Sources */,
 				4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */,
