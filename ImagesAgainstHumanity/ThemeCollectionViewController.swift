@@ -12,7 +12,6 @@ private let reuseIdentifier = "themeCell"
 
 class ThemeCollectionViewController: UICollectionViewController{
     
-    var themes = ThemeController.sharedInstance.themeNames
     //let themesImages = ["FunnyPic","Spongebob"]
     var themelables = [Theme]()
 
@@ -22,13 +21,11 @@ class ThemeCollectionViewController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _ = ThemeController.fetchAllThemes({ (success) in
-            if let _ = success {
-                self.themes = ThemeController.sharedInstance.themeNames
-                self.themelables = self.themes
+        ThemeController.sharedInstance.fetchAllThemes { (success) in
+            if success {
                 self.collectionView?.reloadData()
             }
-        })
+        }
         
         
         
@@ -56,22 +53,10 @@ class ThemeCollectionViewController: UICollectionViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         
-        
-        
-        if let cell = sender as? UICollectionViewCell{
-            if let indexPath = collectionView!.indexPathForCell(cell){
-                
-                //let theme = themesImages[indexPath.row]
-               let theme = themelables[indexPath.row]
-                let destinationViewController = segue.destinationViewController as? PickCaptionTableViewController
-                
-                _ = destinationViewController?.view
-  
-                destinationViewController?.theme = theme.themeTitle!
-                
-            }
-        }
-        
+        guard let captionView = segue.destinationViewController as? PickCaptionTableViewController, cell = sender as? UICollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) else { return }
+        let theme = ThemeController.sharedInstance.themeAtIndexPath(indexPath)
+        captionView.title = theme.name
+        ThemeController.sharedInstance.selectTheme(theme)
         
         
         // Pass the selected object to the new view controller.
@@ -83,21 +68,16 @@ class ThemeCollectionViewController: UICollectionViewController{
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return themes.count
-        //return themelables.count
+        return ThemeController.sharedInstance.themes.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ThemeCollectionViewCell
         
-        //let nameImage = themesImages[indexPath.row]
-        let nameLabel = themelables[indexPath.row]
+        let theme = ThemeController.sharedInstance.themeAtIndexPath(indexPath)
         
-        //cell.themeImage.image = UIImage(named: nameImage)
-        cell.themeLabel.text = nameLabel.themeTitle
-        // Configure the cell
-        
+        cell.themeLabel.text = theme.name
+        cell.themeImage.image = theme.coverImage
     
         return cell
     }

@@ -11,15 +11,41 @@ import Firebase
 
 class FirebaseController  {
     
-    static let base = Firebase(url: "https://imagesagainsthumanit.firebaseio.com")
+    enum ParseError: ErrorType {
+        case ValueNotFound(key: String)
+    }
+    
+    static let sharedController = FirebaseController()
+    
+    private let base = Firebase(url: "https://imagesagainsthumanit.firebaseio.com")
+    
+    func getThemes(completion: (data: AnyObject?) -> Void) {
+        
+        let objects = base.childByAppendingPath("themeObjects")
+        
+        objects.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            if snapshot.value is NSNull {
+                NSLog("no info for snapshot")
+                completion(data: nil)
+            } else {
+                completion(data: snapshot.value)
+            }
+        })
+        
+    }
     
     //this will go and fetch all theme titles in firebase
-    static func getThemesTitle(completion: (data: AnyObject?) -> Void) {
+    func getThemesTitle(completion: (data: AnyObject?) -> Void) {
+        
         let theme = base.childByAppendingPath("themeNames")
+        
         theme.observeEventType(.Value, withBlock: { (snapshot) in
+            
             if snapshot.value is NSNull{
+                
                 completion(data: nil)
                 NSLog("no info for snapshot")
+                
             } else {
                 
                 completion(data: snapshot.value)
@@ -41,12 +67,17 @@ class FirebaseController  {
     }
     
     // this will access a specific themes photo
-    static func getTheme(themePicked: String) {
+    func getTheme(themePicked: String, completion: (data: AnyObject?) -> Void) {
         
-        let theme = base.childByAppendingPath(themePicked)
+        let theme = base.childByAppendingPath("themes/\(themePicked)")
+        
         theme.observeEventType(.Value, withBlock: { (snapshot) in
+            
             if snapshot.value is NSNull{
+                
+                completion(data: nil)
                 NSLog("no info for snapshot")
+                
             } else {
                 
                 if let themeTitle = snapshot.value[""] as? [String] {

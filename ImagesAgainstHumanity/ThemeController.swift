@@ -13,26 +13,45 @@ class ThemeController {
     
     static let sharedInstance = ThemeController()
     
-    var themes = [Theme]()
-    var themeNames = [Theme]()
+    private(set) var themes = [Theme]()
+    private(set) var currentTheme: Theme?
+
     
-    static func fetchAllThemes(completion: (success: Bool?) -> Void){
+    func fetchAllThemes(completion: (success: Bool) -> Void){
         
-        FirebaseController.getThemesTitle { (data) in
-            if let themeTitle = data as? [String] {
-                
-                for theme in themeTitle {
-                    
-                    let theme = Theme.init(themeTitle: theme)
-                    
-                    ThemeController.sharedInstance.themeNames.append(theme!)
-                    
-                    
+        FirebaseController.sharedController.getThemes { (data) in
+            
+            guard let jsonArray = data as? [[String: AnyObject]] else { completion(success: false); return }
+            
+            self.themes = []
+            for json in jsonArray {
+                do {
+                    let theme = try Theme(json: json)
+                    self.themes.append(theme)
+                } catch {
+                    print("Error parsing theme: \(json)")
                 }
-                completion(success: true)
             }
+            
+            completion(success: true)
+            
         }
         
+    }
+    
+//    func getNextImage(completion: (image: ImageModelObject?) -> Void) {
+    
+        // hit firebase, given the current theme, and get back data
+        // Parse the data into an ImageModelObject with image and captions
+        // Return that object
+//    }
+    
+    func themeAtIndexPath(indexPath: NSIndexPath) -> Theme {
+        return themes[indexPath.item]
+    }
+    
+    func selectTheme(theme: Theme) {
+        currentTheme = theme
     }
     
     static func fetchThemeData (themeTitle: String?){
