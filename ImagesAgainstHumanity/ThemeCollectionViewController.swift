@@ -12,8 +12,7 @@ private let reuseIdentifier = "themeCell"
 
 class ThemeCollectionViewController: UICollectionViewController{
     
-    //let themesImages = ["FunnyPic","Spongebob"]
-    var themelables = [Theme]()
+    //var themelables = [Theme]()
 
     
     @ IBAction func unwindTofirst(segue: UIStoryboardSegue) {}
@@ -49,7 +48,6 @@ class ThemeCollectionViewController: UICollectionViewController{
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         

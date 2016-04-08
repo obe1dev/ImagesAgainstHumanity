@@ -33,8 +33,10 @@ struct Theme {
         guard let name = json[nameKey] as? String else { throw FirebaseController.ParseError.ValueNotFound(key: nameKey) }
         self.name = name
         guard let imageString = json[imageKey] as? String else { throw FirebaseController.ParseError.ValueNotFound(key: imageKey) }
-        // convert image and save it
-        coverImage = nil // change this when you have converted the image
+        
+        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
+        
+        coverImage = UIImage(data: decodedData!)
     }
     
 //    init?(themeTitle: String?, images: UIImage? = nil, phrases: String? = nil){
