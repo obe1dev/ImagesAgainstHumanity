@@ -13,7 +13,10 @@ class PickCaptionTableViewController: UITableViewController {
     
     
     var theme = ""
-    var phrases = []
+    var pickedImage = UIImage()
+    var phrases = [String]()
+    var displayedPhrases = [String]()
+    var images = []
     var winnerArray = [String]()
     var captionPicked = ""
     
@@ -30,24 +33,49 @@ class PickCaptionTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        PickedCatagoryController.sharedInstance.fetchThemeData { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+        
         tableView.tableFooterView = UIView()
         
-        if theme != "" {
-            captionImage.image = UIImage(named: theme)
+        phrases = (PickedCatagoryController.sharedInstance.themes?.phrases)!
+        images = (PickedCatagoryController.sharedInstance.themes?.themeImages)!
+        
+        captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
+        
+        //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
+        
+        for _ in 1...4 {
+            
+            let randomNum = getRandomNum(phrases)
+            displayedPhrases.append(phrases[randomNum])
+            //think about taking this item out of the phrases array to prevent douplicates
+            
         }
         
-        switch theme {
-        case "FunnyPic":
-            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
-            return
-        case "Spongebob":
-            phrases = ["i dont think were in utah","hold me","lol","cool","its working"]
-            return
-        default:
-            captionImage.image = UIImage(named: "FunnyPic")
-            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
-            return
+        
+        
+        
+        if theme != "" {
+            
+            //captionImage.image = UIImage(named: theme)
         }
+        
+//        switch theme {
+//        case "FunnyPic":
+//            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
+//            return
+//        case "Spongebob":
+//            phrases = ["i dont think were in utah","hold me","lol","cool","its working"]
+//            return
+//        default:
+//            captionImage.image = UIImage(named: "FunnyPic")
+//            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
+//            return
+//        }
         
         
     }
@@ -55,6 +83,22 @@ class PickCaptionTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getRandomNum(array: NSArray) -> Int {
+        
+        let numberOfThemes = array.count
+        
+        return Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
+        
+    }
+    
+    func decodeImage(image: NSString){
+        
+        let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
+        
+        pickedImage = UIImage(data: decodeData!)!
+        
     }
 
     // MARK: - Table view data source
@@ -79,7 +123,7 @@ class PickCaptionTableViewController: UITableViewController {
         if indexPath.row < phrases.count {
             let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell") as! PhraseTableViewCell
         
-            cell.phraseLabel.text = phrases[indexPath.row] as? String
+            cell.phraseLabel.text = phrases[indexPath.row]
             
             return cell
         } else {
@@ -118,7 +162,7 @@ class PickCaptionTableViewController: UITableViewController {
         
             let aletView = JSSAlertView()
             
-            captionPicked = phrases[indexPath.row] as! String
+            captionPicked = phrases[indexPath.row]
             
             aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
             aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)

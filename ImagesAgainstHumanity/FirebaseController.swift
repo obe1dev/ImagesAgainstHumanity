@@ -34,6 +34,22 @@ class FirebaseController  {
         
     }
     
+    func getThemeData(completion: (data: AnyObject?) -> Void){
+        
+        let objects = base.childByAppendingPath("themes/\(ThemeController.sharedInstance.currentTheme)")
+        
+        objects.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            if snapshot.value is NSNull{
+                completion(data: nil)
+            } else {
+                completion(data: snapshot.value)
+            }
+            
+        })
+    
+    }
+    
     //this will go and fetch all theme titles in firebase
     func getThemesTitle(completion: (data: AnyObject?) -> Void) {
         
