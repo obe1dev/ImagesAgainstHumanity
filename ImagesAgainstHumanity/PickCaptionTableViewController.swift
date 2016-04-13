@@ -44,13 +44,14 @@ class PickCaptionTableViewController: UITableViewController {
         phrases = (PickedCatagoryController.sharedInstance.themes?.phrases)!
         images = (PickedCatagoryController.sharedInstance.themes?.themeImages)!
         
-        captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
+        captionImage.image = UIImage(data: getRandomNumAndDecode(images))
+        //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
         
         //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
         
         for _ in 1...4 {
             
-            let randomNum = getRandomNum(phrases)
+            let randomNum = getRandPhrase(phrases)
             displayedPhrases.append(phrases[randomNum])
             //think about taking this item out of the phrases array to prevent douplicates
             
@@ -85,21 +86,67 @@ class PickCaptionTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getRandomNum(array: NSArray) -> Int {
+    func getRandPhrase(array: NSArray) -> Int {
         
-        let numberOfThemes = array.count
+        let numberOfPhrases = array.count
         
-        return Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
+        var randomNum: Int = 0
+        
+        randomNum = Int(arc4random_uniform(UInt32(numberOfPhrases)) + 1)
+        
+        return randomNum
         
     }
     
-    func decodeImage(image: NSString){
+    func getRandomNumAndDecode(array: NSArray) -> NSData {
+        
+        let numberOfThemes = array.count
+        
+        var randomNum: Int = 0
+        
+        randomNum = Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
+        
+        if let imageData = array[randomNum] as? String {
+            
+            return decodeImage(imageData)
+            
+        } else {
+            NSLog("error in getRandomNum func")
+            
+            return NSData()
+        }
+        
+        
+        
+    }
+    
+    func decodeImage(image: NSString) -> NSData {
         
         let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
         
-        pickedImage = UIImage(data: decodeData!)!
+        //        pickedImage = UIImage(data: decodeData!)!
+        
+        return decodeData!
         
     }
+    
+    
+    
+//    func getRandomNum(array: NSArray) -> Int {
+//        
+//        let numberOfThemes = array.count
+//        
+//        return Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
+//        
+//    }
+//    
+//    func decodeImage(image: NSString){
+//        
+//        let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
+//        
+//        pickedImage = UIImage(data: decodeData!)!
+//        
+//    }
 
     // MARK: - Table view data source
     

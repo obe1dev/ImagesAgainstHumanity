@@ -40,7 +40,7 @@ class PickedCatagoryController {
     }
 
     
-    func getRandomNum(array: NSArray){
+    func getRandomNum(array: NSArray) {
         
         let numberOfThemes = array.count
         
@@ -48,7 +48,7 @@ class PickedCatagoryController {
         
     }
     
-    func decodeImage(image: NSString){
+    func decodeImage(image: NSString) {
         
         let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
         
