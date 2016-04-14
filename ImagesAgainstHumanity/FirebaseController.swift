@@ -34,20 +34,20 @@ class FirebaseController  {
         
     }
     
-    func getThemeData(completion: (data: AnyObject?) -> Void){
+    func getThemeData(completion: (json: [String: AnyObject]?) -> Void){
         
-        let objects = base.childByAppendingPath("themes/\(ThemeController.sharedInstance.currentTheme)")
+        let objects = base.childByAppendingPath("themes/\(ThemeController.sharedInstance.currentTheme!.name)")
         
         objects.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             if snapshot.value is NSNull{
-                completion(data: nil)
+                completion(json: nil)
             } else {
-                completion(data: snapshot.value)
+                completion(json: snapshot.value as? [String: AnyObject])
             }
             
         })
-    
+            
     }
     
     //this will go and fetch all theme titles in firebase

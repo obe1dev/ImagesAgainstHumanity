@@ -35,29 +35,48 @@ class PickCaptionTableViewController: UITableViewController {
         
         PickedCatagoryController.sharedInstance.fetchThemeData { (success) in
             if success {
+                
+                self.phrases = (PickedCatagoryController.sharedInstance.currentTheme?.phrases)!
+                self.images = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)!
+                
+                self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.images))
+                //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
+                
+                //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
+                
+                for _ in 1...4 {
+                    
+                    let randomNum = self.getRandPhrase(self.phrases)
+                    self.displayedPhrases.append(self.phrases[randomNum])
+                    //think about taking this item out of the phrases array to prevent douplicates
+                    
+                }
+                
                 self.tableView.reloadData()
             }
         }
         
         tableView.tableFooterView = UIView()
         
-        phrases = (PickedCatagoryController.sharedInstance.themes?.phrases)!
-        images = (PickedCatagoryController.sharedInstance.themes?.themeImages)!
+        func updatedData(){
         
-        captionImage.image = UIImage(data: getRandomNumAndDecode(images))
-        //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
+//        phrases = (PickedCatagoryController.sharedInstance.themes?.phrases)!
+//        images = (PickedCatagoryController.sharedInstance.themes?.themeImages)!
+//        
+//        captionImage.image = UIImage(data: getRandomNumAndDecode(images))
+//        //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
+//        
+//        //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
+//        
+//        for _ in 1...4 {
+//            
+//            let randomNum = getRandPhrase(phrases)
+//            displayedPhrases.append(phrases[randomNum])
+//            //think about taking this item out of the phrases array to prevent douplicates
+//            
+//        }
         
-        //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
-        
-        for _ in 1...4 {
-            
-            let randomNum = getRandPhrase(phrases)
-            displayedPhrases.append(phrases[randomNum])
-            //think about taking this item out of the phrases array to prevent douplicates
-            
         }
-        
-        
         
         
         if theme != "" {

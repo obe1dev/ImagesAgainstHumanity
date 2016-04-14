@@ -13,28 +13,30 @@ class PickedCatagoryController {
     
     static let sharedInstance = PickedCatagoryController()
     
-    private(set) var themes: PickedCatagory?
+    private(set) var currentTheme: PickedCatagory?
     var randomNum: Int = 0
     var pickedImage = UIImage()
     
     func fetchThemeData(completion: (success: Bool) -> Void){
         
-        FirebaseController.sharedController.getThemeData { (data) in
-            guard let jsonArray = data as? [[String: AnyObject]] else {
-                completion(success: false); return}
-            
-            self.themes = nil
-            
-            for json in jsonArray {
-                do{
-                    let theme = try PickedCatagory(json: json)
-                    self.themes = (theme)
-                } catch {
-                    print("Error parsing Theme: \(json)")
-                }
+        FirebaseController.sharedController.getThemeData { json in
+
+            guard let json = json else {
+                completion(success: false)
+                return
             }
             
-            completion(success: true)
+            self.currentTheme = nil
+            
+            do {
+                let theme = try PickedCatagory(json: json)
+                self.currentTheme = theme
+                completion(success: true)
+            } catch {
+                print("Error parsing Theme: \(json)")
+                completion(success: false)
+            }
+            
             
         }
     }

@@ -19,14 +19,15 @@ struct PickedCatagory {
     
     init(json: [String: AnyObject]) throws {
         
-        guard let phrases = json[phraseKey] as? NSArray else { throw FirebaseController.ParseError.ValueNotFound(key: phraseKey)}
-        self.phrases = phrases as! [String]
         
-        guard let imageString = json[imageKey] as? NSArray else { throw FirebaseController.ParseError.ValueNotFound(key: imageKey)}
+        guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.ValueNotFound(key: phraseKey)}
+        self.phrases = phrases
+        
+        guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.ValueNotFound(key: imageKey)}
         
 //        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
         
-        self.themeImages = imageString as! [String]
+        self.themeImages = imageString
         //TODO: convet one image from the theme after randomly picked
     }
     
