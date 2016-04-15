@@ -12,6 +12,8 @@ class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var captionText: UITextField!
     
+    var cellDelegate = CaptionCellDelegate?()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,9 +27,19 @@ class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if let delegate = cellDelegate {
+            delegate.cellTapped(self)
+        }
+        
         captionText.resignFirstResponder()
         return true
     }
     
+    
+}
 
+//MARK: Delegate
+protocol CaptionCellDelegate {
+    func cellTapped(cell: CaptionTableViewCell)
 }

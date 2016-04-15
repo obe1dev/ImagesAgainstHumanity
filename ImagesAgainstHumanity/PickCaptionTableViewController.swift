@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickCaptionTableViewController: UITableViewController {
+class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate {
     
     
     
@@ -20,6 +20,7 @@ class PickCaptionTableViewController: UITableViewController {
     var winnerArray = [String]()
     var captionPicked = ""
     
+    
     @IBOutlet weak var captionImage: UIImageView!
     
     
@@ -27,11 +28,6 @@ class PickCaptionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         PickedCatagoryController.sharedInstance.fetchThemeData { (success) in
             if success {
@@ -40,17 +36,8 @@ class PickCaptionTableViewController: UITableViewController {
                 self.images = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)!
                 
                 self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.images))
-                //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
                 
-                //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
-                
-                for _ in 1...4 {
-                    
-                    let randomNum = self.getRandPhrase(self.phrases)
-                    self.displayedPhrases.append(self.phrases[randomNum])
-                    //think about taking this item out of the phrases array to prevent douplicates
-                    
-                }
+                self.randomLoop()
                 
                 self.tableView.reloadData()
             }
@@ -58,52 +45,27 @@ class PickCaptionTableViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         
-        func updatedData(){
-        
-//        phrases = (PickedCatagoryController.sharedInstance.themes?.phrases)!
-//        images = (PickedCatagoryController.sharedInstance.themes?.themeImages)!
-//        
-//        captionImage.image = UIImage(data: getRandomNumAndDecode(images))
-//        //captionImage.image = UIImage(data: decodeImage(getRandomNum(images)))
-//        
-//        //captionImage.image = PickedCatagoryController.sharedInstance.pickedImage
-//        
-//        for _ in 1...4 {
-//            
-//            let randomNum = getRandPhrase(phrases)
-//            displayedPhrases.append(phrases[randomNum])
-//            //think about taking this item out of the phrases array to prevent douplicates
-//            
-//        }
-        
-        }
-        
-        
-        if theme != "" {
-            
-            //captionImage.image = UIImage(named: theme)
-        }
-        
-//        switch theme {
-//        case "FunnyPic":
-//            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
-//            return
-//        case "Spongebob":
-//            phrases = ["i dont think were in utah","hold me","lol","cool","its working"]
-//            return
-//        default:
-//            captionImage.image = UIImage(named: "FunnyPic")
-//            phrases = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
-//            return
-//        }
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func randomLoop(){
+        
+        var tempArray = self.phrases
+        
+        for _ in 1...4 {
+            
+            if tempArray.count < 0{
+                return
+            }
+            
+            let randomNum = self.getRandPhrase(tempArray)
+            self.displayedPhrases.append(tempArray[randomNum])
+            tempArray.removeAtIndex(randomNum)
+            
+        }
+        
     }
+    
+    
     
     func getRandPhrase(array: NSArray) -> Int {
         
@@ -111,7 +73,7 @@ class PickCaptionTableViewController: UITableViewController {
         
         var randomNum: Int = 0
         
-        randomNum = Int(arc4random_uniform(UInt32(numberOfPhrases)) + 1)
+        randomNum = Int(arc4random_uniform(UInt32(numberOfPhrases)))
         
         return randomNum
         
@@ -123,7 +85,7 @@ class PickCaptionTableViewController: UITableViewController {
         
         var randomNum: Int = 0
         
-        randomNum = Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
+        randomNum = Int(arc4random_uniform(UInt32(numberOfThemes)))
         
         if let imageData = array[randomNum] as? String {
             
@@ -150,22 +112,6 @@ class PickCaptionTableViewController: UITableViewController {
     }
     
     
-    
-//    func getRandomNum(array: NSArray) -> Int {
-//        
-//        let numberOfThemes = array.count
-//        
-//        return Int(arc4random_uniform(UInt32(numberOfThemes)) + 1)
-//        
-//    }
-//    
-//    func decodeImage(image: NSString){
-//        
-//        let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
-//        
-//        pickedImage = UIImage(data: decodeData!)!
-//        
-//    }
 
     // MARK: - Table view data source
     
@@ -175,9 +121,8 @@ class PickCaptionTableViewController: UITableViewController {
     
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-//        return section == 0 ? 5 : 0
-        return phrases.count + 1
+
+        return displayedPhrases.count + 1
     }
 
     
@@ -186,17 +131,23 @@ class PickCaptionTableViewController: UITableViewController {
         
         //this will send the pre-built captions
         
-        if indexPath.row < phrases.count {
+        if indexPath.row < displayedPhrases.count {
             let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell") as! PhraseTableViewCell
-        
-            cell.phraseLabel.text = phrases[indexPath.row]
+            
+            cell.phraseLabel.text = displayedPhrases[indexPath.row]
+            //cell.phraseLabel.text = phrases[indexPath.row]
             
             return cell
         } else {
         
             let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell") as! CaptionTableViewCell
             cell.captionText.placeholder = "Add your caption here"
-            
+           
+            if cell.cellDelegate == nil{
+                
+                cell.cellDelegate = self
+                
+            }
             return cell
         }
        
@@ -204,52 +155,71 @@ class PickCaptionTableViewController: UITableViewController {
 
         
     }
-    
-//    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 50.0
-//    }
-//    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        
-//        let footerView = UIView()
-//        
-//        footerView.backgroundColor = UIColor.clearColor()
-//        
-//        return footerView
-//        
-//    }
-    
-    //MARK: Custom Alert View
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.row == phrases.count {
+        if indexPath.row == displayedPhrases.count + 1 {
             print("selected text field cell")
         } else {
         
-            let aletView = JSSAlertView()
+            captionPicked = displayedPhrases[indexPath.row]
             
-            captionPicked = phrases[indexPath.row]
-            
-            aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
-            aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
-            
-            aletView.addAction(addCaptionToWinnerArray)
-            aletView.addCancelAction(endRound)
+            self.aletView()
             
         }
         
         
     }
     
+    //MARK: CaptionCellDelegate
+    func cellTapped(cell: CaptionTableViewCell) {
+        
+        if cell.captionText.text != "" {
+            
+            
+            captionPicked = cell.captionText.text!
+            
+            //reset the cell to nil for next player
+            cell.captionText.text = nil
+            
+            self.aletView()
+            
+        }
+        
+    }
+
+    
+    //MARK: Custom Alert View
+    
+    func aletView() {
+        
+        let aletView = JSSAlertView()
+        
+        aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
+        aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
+        
+        aletView.addAction(addCaptionToWinnerArray)
+        aletView.addCancelAction(endRound)
+    }
+    
     func addCaptionToWinnerArray() ->Void {
         
-       winnerArray.append(captionPicked)
+        //taking an item out of the phrases array to prevent douplicate
+
+        
+        winnerArray.append(captionPicked)
+        
+        displayedPhrases = []
+        
+        self.randomLoop()
+        self.tableView.reloadData()
         
     }
     
     func endRound() ->Void {
         
-        captionImage.image = UIImage(named: theme)
+//        captionImage.image = UIImage(named: theme)
         
         addCaptionToWinnerArray()
         performSegueWithIdentifier("toWinner", sender: self)
