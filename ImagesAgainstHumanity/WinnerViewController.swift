@@ -14,7 +14,8 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var winnerThemeImage: UIImageView!
     
-    var winnerArray = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
+    var winnerArray = [String]()
+    //var winnerArray = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
     
     private let reuseIdentifier = "winnerCell"
     
@@ -25,11 +26,15 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //whis will help the fromatting on the collection view
+
+        winnerThemeImage.image = WinnerController.sharedInstance.themeImage
+        winnerArray = WinnerController.sharedInstance.winnerArray
+        
+        //this will help the fromatting on the collection view
         winnerArray.insert("", atIndex: 0)
         winnerArray.append("")
 
-        winnerThemeImage.image = UIImage(named: "FunnyPic")
+       // winnerThemeImage.image = UIImage(named: "FunnyPic")
         
     }
 

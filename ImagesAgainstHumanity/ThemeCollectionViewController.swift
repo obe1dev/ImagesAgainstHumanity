@@ -35,16 +35,6 @@ class ThemeCollectionViewController: UICollectionViewController{
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func alertView(sender: AnyObject) {
-        
-        let alertView = JSSAlertView();
-        
-        alertView.show(self, title: "test", text: "Body text test", buttonText: "action", cancelButtonText: "Cancel", color: UIColor.orangeColor())
-        alertView.setTextTheme(JSSAlertView.TextColorTheme.Light)
-        
-         
-        
-    }
     
     // MARK: - Navigation
 

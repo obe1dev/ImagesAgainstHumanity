@@ -37,6 +37,10 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                 
                 self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.images))
                 
+                if self.captionImage.image != nil {
+                    self.pickedImage = self.captionImage.image!
+                }
+                
                 self.randomLoop()
                 
                 self.tableView.reloadData()
@@ -53,7 +57,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
         for _ in 1...4 {
             
-            if tempArray.count < 0{
+            if tempArray.count == 0{
                 return
             }
             
@@ -105,8 +109,6 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
         let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
         
-        //        pickedImage = UIImage(data: decodeData!)!
-        
         return decodeData!
         
     }
@@ -143,6 +145,8 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell") as! CaptionTableViewCell
             cell.captionText.placeholder = "Add your caption here"
            
+            cell.captionText.text = ""
+            
             if cell.cellDelegate == nil{
                 
                 cell.cellDelegate = self
@@ -213,15 +217,18 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         displayedPhrases = []
         
         self.randomLoop()
+        
         self.tableView.reloadData()
         
     }
     
     func endRound() ->Void {
         
-//        captionImage.image = UIImage(named: theme)
-        
         addCaptionToWinnerArray()
+        
+        WinnerController.sharedInstance.winnerArray = winnerArray
+        WinnerController.sharedInstance.themeImage = pickedImage
+        
         performSegueWithIdentifier("toWinner", sender: self)
         
     }
