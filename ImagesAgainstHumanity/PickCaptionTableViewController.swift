@@ -16,26 +16,48 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     var pickedImage = UIImage()
     var phrases = [String]()
     var displayedPhrases = [String]()
-    var images = []
+    var dataArray = []
     var winnerArray = [String]()
     var captionPicked = ""
     
     
     @IBOutlet weak var captionImage: UIImageView!
     
+    @IBOutlet weak var pickedCard: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        theme = (ThemeController.sharedInstance.currentTheme?.name)!
         
         PickedCatagoryController.sharedInstance.fetchThemeData { (success) in
             if success {
                 
                 self.phrases = (PickedCatagoryController.sharedInstance.currentTheme?.phrases)!
-                self.images = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)!
                 
-                self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.images))
+                self.dataArray = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)!
+                
+                if self.theme == "Black Cards"{
+                    
+                    self.pickedCard.text =  PickedCatagoryController.sharedInstance.currentTheme?.themeImages[self.getRandPhrase(self.dataArray)]
+                    
+                    self.pickedCard.textColor = .whiteColor()
+                    
+                    self.captionImage.backgroundColor = .blackColor()
+                    self.captionImage.layer.cornerRadius = 10.0
+                
+                
+                }else{
+                    
+                    
+                    
+                    self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.dataArray))
+                    
+                    self.pickedCard.hidden = true
+                
+                }
+                
                 
                 if self.captionImage.image != nil {
                     self.pickedImage = self.captionImage.image!
@@ -228,6 +250,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
         WinnerController.sharedInstance.winnerArray = winnerArray
         WinnerController.sharedInstance.themeImage = pickedImage
+        WinnerController.sharedInstance.pickedCard = pickedCard
         
         performSegueWithIdentifier("toWinner", sender: self)
         

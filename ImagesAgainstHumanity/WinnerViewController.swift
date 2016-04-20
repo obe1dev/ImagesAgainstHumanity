@@ -13,6 +13,9 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     //UICollectionViewFlowLayout
     
     @IBOutlet weak var winnerThemeImage: UIImageView!
+    @IBOutlet weak var winningCardLabel: UILabel!
+    
+    var theme = ""
     
     var winnerArray = [String]()
     //var winnerArray = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
@@ -26,8 +29,24 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        theme = (ThemeController.sharedInstance.currentTheme?.name)!
+        
+        if self.theme == "Black Cards"{
+            
+            self.winnerThemeImage.backgroundColor = UIColor.blackColor()
+            self.winnerThemeImage.layer.cornerRadius = 10.0
+            
+            self.winningCardLabel.text = WinnerController.sharedInstance.pickedCard.text
+            self.winningCardLabel.textColor = UIColor.whiteColor()
+        
+        }else{
 
-        winnerThemeImage.image = WinnerController.sharedInstance.themeImage
+            winnerThemeImage.image = WinnerController.sharedInstance.themeImage
+            
+            self.winningCardLabel.hidden = true
+            
+        }
+        
         winnerArray = WinnerController.sharedInstance.winnerArray
         
         //this will help the fromatting on the collection view

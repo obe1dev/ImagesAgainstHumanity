@@ -86,16 +86,26 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="245"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-k1-uth">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pic-k1-uth">
                                     <rect key="frame" x="8" y="8" width="584" height="229"/>
                                 </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-Rg-qYa">
+                                    <rect key="frame" x="18" y="18" width="564" height="209"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Pic-k1-uth" firstAttribute="leading" secondItem="anu-6q-OTF" secondAttribute="leading" constant="8" id="S7e-NY-s0S"/>
-                                <constraint firstAttribute="trailing" secondItem="Pic-k1-uth" secondAttribute="trailing" constant="8" id="ZOX-ye-rST"/>
-                                <constraint firstAttribute="bottom" secondItem="Pic-k1-uth" secondAttribute="bottom" constant="8" id="iJp-Ww-cW1"/>
-                                <constraint firstItem="Pic-k1-uth" firstAttribute="top" secondItem="anu-6q-OTF" secondAttribute="top" constant="8" id="xVl-ci-irG"/>
+                                <constraint firstItem="vPQ-Rg-qYa" firstAttribute="leading" secondItem="anu-6q-OTF" secondAttribute="leading" constant="18" id="6IV-ml-ZRP"/>
+                                <constraint firstItem="vPQ-Rg-qYa" firstAttribute="top" secondItem="anu-6q-OTF" secondAttribute="top" constant="18" id="E6n-sJ-N07"/>
+                                <constraint firstAttribute="bottom" secondItem="Pic-k1-uth" secondAttribute="bottom" constant="8" id="G7e-eu-pPP"/>
+                                <constraint firstAttribute="trailing" secondItem="vPQ-Rg-qYa" secondAttribute="trailing" constant="18" id="Xf6-de-xBq"/>
+                                <constraint firstAttribute="trailing" secondItem="Pic-k1-uth" secondAttribute="trailing" constant="8" id="Y0W-CC-m0e"/>
+                                <constraint firstItem="Pic-k1-uth" firstAttribute="leading" secondItem="anu-6q-OTF" secondAttribute="leading" constant="8" id="fDe-aG-aFs"/>
+                                <constraint firstItem="Pic-k1-uth" firstAttribute="top" secondItem="anu-6q-OTF" secondAttribute="top" constant="8" id="pwF-oy-paj"/>
+                                <constraint firstAttribute="bottom" secondItem="vPQ-Rg-qYa" secondAttribute="bottom" constant="18" id="ts6-se-YoI"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -160,6 +170,7 @@
                     <navigationItem key="navigationItem" id="gv4-1p-Nay"/>
                     <connections>
                         <outlet property="captionImage" destination="Pic-k1-uth" id="FVF-CH-78w"/>
+                        <outlet property="pickedCard" destination="vPQ-Rg-qYa" id="2se-VY-vY9"/>
                         <segue destination="29D-wN-xa2" kind="presentation" identifier="toWinner" id="3qP-4Q-LBh"/>
                     </connections>
                 </tableViewController>
@@ -183,22 +194,32 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGE-7g-doO" userLabel="Image View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="266.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sw5-Ss-qKC">
-                                                <rect key="frame" x="8" y="8" width="584" height="251"/>
+                                                <rect key="frame" x="8" y="8" width="584" height="250.5"/>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u81-V8-vZF">
+                                                <rect key="frame" x="18" y="18" width="564" height="230.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="u81-V8-vZF" secondAttribute="bottom" constant="18" id="2Lv-Ih-ETf"/>
+                                            <constraint firstItem="u81-V8-vZF" firstAttribute="top" secondItem="mGE-7g-doO" secondAttribute="top" constant="18" id="2oe-cz-XjW"/>
                                             <constraint firstItem="Sw5-Ss-qKC" firstAttribute="top" secondItem="mGE-7g-doO" secondAttribute="top" constant="8" id="C26-Bl-JZ7"/>
+                                            <constraint firstItem="u81-V8-vZF" firstAttribute="leading" secondItem="mGE-7g-doO" secondAttribute="leading" constant="18" id="JN3-PT-j5V"/>
                                             <constraint firstAttribute="trailing" secondItem="Sw5-Ss-qKC" secondAttribute="trailing" constant="8" id="XWE-0E-jPT"/>
                                             <constraint firstItem="Sw5-Ss-qKC" firstAttribute="leading" secondItem="mGE-7g-doO" secondAttribute="leading" constant="8" id="krw-wy-DnJ"/>
                                             <constraint firstAttribute="bottom" secondItem="Sw5-Ss-qKC" secondAttribute="bottom" constant="8" id="uWn-Iv-UuD"/>
+                                            <constraint firstAttribute="trailing" secondItem="u81-V8-vZF" secondAttribute="trailing" constant="18" id="zMp-xm-ELM"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-2C-hxp">
-                                        <rect key="frame" x="0.0" y="270" width="600" height="267"/>
+                                        <rect key="frame" x="0.0" y="269.5" width="600" height="266.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3q4-wP-eiR" customClass="CenterCellCollectionView" customModule="ImagesAgainstHumanity" customModuleProvider="target">
                                             <size key="itemSize" width="180" height="224"/>
@@ -263,6 +284,7 @@
                     <connections>
                         <outlet property="collectionView" destination="zNM-2C-hxp" id="8CM-C7-6y6"/>
                         <outlet property="winnerThemeImage" destination="Sw5-Ss-qKC" id="rej-AN-FNH"/>
+                        <outlet property="winningCardLabel" destination="u81-V8-vZF" id="Jwk-iU-0oz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Na-mD-MNd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -98,7 +98,7 @@ class FirebaseController  {
                 
                 if let themeTitle = snapshot.value[""] as? [String] {
                     
-                    for theme in themeTitle {
+                    for _ in themeTitle {
 //                        let theme  = Theme.init(themeTitle: theme)
                         
 //                        ThemeController.sharedInstance.themes.append(theme!)

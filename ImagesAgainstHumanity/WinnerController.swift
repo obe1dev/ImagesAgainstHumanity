@@ -17,5 +17,5 @@ class WinnerController {
     
     var winnerArray = [String]()
     
-    
+    var pickedCard = UILabel()
 }

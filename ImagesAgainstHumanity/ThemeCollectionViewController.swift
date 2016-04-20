@@ -43,7 +43,12 @@ class ThemeCollectionViewController: UICollectionViewController{
         
         guard let captionView = segue.destinationViewController as? PickCaptionTableViewController, cell = sender as? UICollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) else { return }
         let theme = ThemeController.sharedInstance.themeAtIndexPath(indexPath)
+        
+        ThemeController.sharedInstance.selectTheme(theme)
+        
         captionView.title = theme.name
+        
+        
         ThemeController.sharedInstance.selectTheme(theme)
         
         
