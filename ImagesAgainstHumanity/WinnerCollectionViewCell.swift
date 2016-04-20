@@ -10,6 +10,6 @@ import UIKit
 
 class WinnerCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var winnerTextView: UITextView!
+    @IBOutlet weak var winnerTextlabel: UILabel!
         
 }

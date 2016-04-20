@@ -79,15 +79,26 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let nameLabel = winnerArray[indexPath.row]
         
-        cell.winnerTextView.text = nameLabel
-
+        cell.winnerTextlabel.text = nameLabel
         
+        cell.layer.cornerRadius = 7.0
+        
+        cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        cell.layer.shadowOpacity = 0.7
+       // cell.layer.shadowRadius = 7.0
+        cell.layer.masksToBounds = false
+        cell.layer.shouldRasterize = false
+        cell.layer.shadowOffset = CGSizeMake(10, 10)
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 10.0).CGPath
         return cell
     }
 
     @IBAction func winnerButton(sender: AnyObject) {
         
     }
+    
+    
+    
     /*
     // MARK: - Navigation
 
