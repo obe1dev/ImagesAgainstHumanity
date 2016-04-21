@@ -13,6 +13,8 @@ class WinnerController {
     
     static let sharedInstance = WinnerController();
     
+    var ThemeTitleImage = UIImage()
+    
     var themeImage = UIImage()
     
     var winnerArray = [String]()

@@ -57,4 +57,6 @@ class CenterCellCollectionView: UICollectionViewFlowLayout {
         // Fallback
         return super.targetContentOffsetForProposedContentOffset(proposedContentOffset)
     }
+    
+    
 }

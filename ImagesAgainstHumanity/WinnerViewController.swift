@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WinnerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class WinnerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     //UICollectionViewFlowLayout
     
@@ -52,8 +52,7 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         //this will help the fromatting on the collection view
         winnerArray.insert("", atIndex: 0)
         winnerArray.append("")
-
-       // winnerThemeImage.image = UIImage(named: "FunnyPic")
+    
         
     }
 
@@ -65,6 +64,7 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     //MARK: - Collection View
     
+        
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return winnerArray.count
     }
@@ -73,9 +73,12 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! WinnerCollectionViewCell
         
-//        if indexPath.row == 0 {
-//            cell.backgroundColor = UIColor.clearColor()
-//        }
+        if indexPath.row == 0 {
+            
+//            cell.backgroundColor = UIColor(patternImage: UIImage(named: "FunnyPic")!)
+            //cell.backgroundView = UIImageView(image: WinnerController.sharedInstance.themeImage)
+        }
+        
         
         let nameLabel = winnerArray[indexPath.row]
         
@@ -85,12 +88,19 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
         cell.layer.shadowOpacity = 0.7
-       // cell.layer.shadowRadius = 7.0
+        // cell.layer.shadowRadius = 7.0
         cell.layer.masksToBounds = false
         cell.layer.shouldRasterize = false
         cell.layer.shadowOffset = CGSizeMake(10, 10)
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 10.0).CGPath
+        
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        
+        return 23.0
+        
     }
 
     @IBAction func winnerButton(sender: AnyObject) {

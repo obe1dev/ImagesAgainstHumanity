@@ -63,6 +63,8 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                     self.pickedImage = self.captionImage.image!
                 }
                 
+                self.captionImage.layer.cornerRadius = 10.0
+                
                 self.randomLoop()
                 
                 self.tableView.reloadData()

@@ -15,6 +15,7 @@ class ThemeController {
     
     private(set) var themes = [Theme]()
     private(set) var currentTheme: Theme?
+    var themeImage = UIImage()
 
     
     func fetchAllThemes(completion: (success: Bool) -> Void){
@@ -59,6 +60,7 @@ class ThemeController {
 //        FirebaseController.
         
     }
+    
     
     
     

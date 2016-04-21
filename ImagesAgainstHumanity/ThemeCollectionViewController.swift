@@ -48,6 +48,11 @@ class ThemeCollectionViewController: UICollectionViewController{
         
         captionView.title = theme.name
         
+        if theme.coverImage != nil{
+            
+            WinnerController.sharedInstance.ThemeTitleImage = theme.coverImage!
+            
+        }
         
         ThemeController.sharedInstance.selectTheme(theme)
         
@@ -71,9 +76,18 @@ class ThemeCollectionViewController: UICollectionViewController{
         
         cell.themeLabel.text = theme.name
         cell.themeImage.image = theme.coverImage
+        
+        cell.themeImage.layer.cornerRadius = 7.0
+        
+        cell.layer.backgroundColor = UIColor.darkGrayColor().CGColor
+        cell.layer.cornerRadius = 7.0
+    
     
         return cell
     }
+    
+    //MARK: style image
+    
     
     // MARK: UICollectionViewDelegate
 
