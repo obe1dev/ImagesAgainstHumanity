@@ -167,7 +167,11 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell") as! PhraseTableViewCell
             
             cell.phraseLabel.text = displayedPhrases[indexPath.row]
+            
+            cell.cellView.layer.cornerRadius = 7
+            cell.cellView.backgroundColor = UIColor().lightPink()
             //cell.phraseLabel.text = phrases[indexPath.row]
+            self.addShadow(cell.cellView)
             
             return cell
         } else {
@@ -176,6 +180,8 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             cell.captionText.placeholder = "Add your caption here"
            
             cell.captionText.text = ""
+            
+            self.addShadow(cell.captionText)
             
             if cell.cellDelegate == nil{
                 
@@ -190,6 +196,17 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
     }
 
+    func addShadow(cell:UIView){
+        
+        cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        cell.layer.shadowOpacity = 0.7
+        cell.layer.masksToBounds = false
+        cell.layer.shouldRasterize = false
+        cell.layer.shadowOffset = CGSizeMake(5,5)
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5.0).CGPath
+        
+        
+    }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

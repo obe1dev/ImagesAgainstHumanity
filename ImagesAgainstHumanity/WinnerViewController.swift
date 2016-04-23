@@ -51,6 +51,9 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
 
             winnerThemeImage.image = WinnerController.sharedInstance.themeImage
             
+            winnerThemeImage.layer.cornerRadius = 10
+            winnerThemeImage.layer.borderWidth = 3
+            
             self.winningCardLabel.hidden = true
             
         }

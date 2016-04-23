@@ -77,8 +77,10 @@ class ThemeCollectionViewController: UICollectionViewController{
         cell.themeLabel.text = theme.name
         cell.themeImage.image = theme.coverImage
         
+        cell.firstView.backgroundColor = UIColor.purpleColor()
         cell.firstView.layer.cornerRadius = 7.0
         cell.firstView.layer.borderWidth = 1.0
+        
         cell.firstView.layer.borderColor = UIColor.blackColor().CGColor
         cell.firstView.layer.shadowColor = UIColor.lightGrayColor().CGColor
         
@@ -96,24 +98,24 @@ class ThemeCollectionViewController: UICollectionViewController{
         
 //        cell.cardStackView.backgroundColor = UIColor.whiteColor()
         
-//        cell.secondView.backgroundColor = UIColor.lightGrayColor()
+        cell.secondView.backgroundColor = UIColor.lightGrayColor()
         cell.secondView.layer.cornerRadius = 7.0
         cell.secondView.layer.borderWidth = 1.0
         cell.secondView.layer.borderColor = UIColor.blackColor().CGColor
         
-//        cell.thirdView.backgroundColor = UIColor.lightGrayColor()
+        cell.thirdView.backgroundColor = UIColor.grayColor()
         cell.thirdView.layer.cornerRadius = 7.0
         cell.thirdView.layer.borderWidth = 1.0
         cell.thirdView.layer.borderColor = UIColor.blackColor().CGColor
         
-//        cell.fourthView.backgroundColor = UIColor.lightGrayColor()
+        cell.fourthView.backgroundColor = UIColor.blackColor()
         cell.fourthView.layer.cornerRadius = 7.0
         cell.fourthView.layer.borderWidth = 1.0
         cell.fourthView.layer.borderColor = UIColor.blackColor().CGColor
         
         cell.themeImage.layer.cornerRadius = 7.0
         cell.themeImage.layer.borderWidth = 3.0
-        cell.themeImage.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.themeImage.layer.borderColor = UIColor().medPink().CGColor
         
 //        cell.layer.backgroundColor = UIColor.darkGrayColor().CGColor
 //        cell.layer.cornerRadius = 7.0

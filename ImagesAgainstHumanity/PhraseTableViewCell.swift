@@ -11,6 +11,7 @@ import UIKit
 class PhraseTableViewCell: UITableViewCell {
 
     @IBOutlet weak var phraseLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
