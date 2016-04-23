@@ -12,5 +12,10 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var themeImage: UIImageView!
     @IBOutlet weak var themeLabel: UILabel!
+    @IBOutlet weak var cardStackView: UIStackView!
     
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var thirdView: UIView!
+    @IBOutlet weak var fourthView: UIView!
 }

@@ -54,6 +54,12 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                     
                     self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.dataArray))
                     
+                    self.captionImage.layer.borderWidth = 3.0
+                    self.captionImage.layer.cornerRadius = 10.0
+                    self.captionImage.layer.masksToBounds = true
+                    
+//                    self.captionImage.layer.shadowColor = UIColor.
+                    
                     self.pickedCard.hidden = true
                 
                 }

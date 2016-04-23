@@ -35,6 +35,7 @@
 		4771AEFB1CB5FD480029B95E /* PickedCatagory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */; };
 		4771AEFD1CB5FF940029B95E /* PickedCatagoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */; };
 		4771AEFF1CC6C1B60029B95E /* WinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFE1CC6C1B60029B95E /* WinnerController.swift */; };
+		4771AF1F1CCB2A570029B95E /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AF1E1CCB2A570029B95E /* AppearanceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagory.swift; sourceTree = "<group>"; };
 		4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagoryController.swift; sourceTree = "<group>"; };
 		4771AEFE1CC6C1B60029B95E /* WinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerController.swift; sourceTree = "<group>"; };
+		4771AF1E1CCB2A570029B95E /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		4762B9461C972E0D0008BBD3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4771AF1E1CCB2A570029B95E /* AppearanceController.swift */,
 				475F3B961CA1FC200040FF73 /* FirebaseController.swift */,
 				475F3B981CA32DC90040FF73 /* ThemeController.swift */,
 				4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */,
@@ -313,6 +316,7 @@
 				4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */,
 				4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */,
 				4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
+				4771AF1F1CCB2A570029B95E /* AppearanceController.swift in Sources */,
 				4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */,
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
 				4762B94B1C9736910008BBD3 /* WinnerCollectionViewCell.swift in Sources */,

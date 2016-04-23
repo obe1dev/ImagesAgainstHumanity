@@ -19,7 +19,7 @@ class ThemeCollectionViewController: UICollectionViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ThemeController.sharedInstance.fetchAllThemes { (success) in
             if success {
                 self.collectionView?.reloadData()
@@ -77,10 +77,47 @@ class ThemeCollectionViewController: UICollectionViewController{
         cell.themeLabel.text = theme.name
         cell.themeImage.image = theme.coverImage
         
-        cell.themeImage.layer.cornerRadius = 7.0
+        cell.firstView.layer.cornerRadius = 7.0
+        cell.firstView.layer.borderWidth = 1.0
+        cell.firstView.layer.borderColor = UIColor.blackColor().CGColor
+        cell.firstView.layer.shadowColor = UIColor.lightGrayColor().CGColor
         
-        cell.layer.backgroundColor = UIColor.darkGrayColor().CGColor
-        cell.layer.cornerRadius = 7.0
+        cell.firstView.layer.masksToBounds = false
+        cell.firstView.layer.shadowOffset = CGSizeMake(-3, -3)
+        cell.firstView.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.firstView.layer.shadowRadius = 7.0
+//        cell.firstView.layer.shadowOpacity = 1.0
+        cell.layer.shouldRasterize = true
+        
+        
+        
+//        cell.themeLabel.layer.cornerRadius = 7.0
+//        cell.themeLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
+        
+//        cell.cardStackView.backgroundColor = UIColor.whiteColor()
+        
+//        cell.secondView.backgroundColor = UIColor.lightGrayColor()
+        cell.secondView.layer.cornerRadius = 7.0
+        cell.secondView.layer.borderWidth = 1.0
+        cell.secondView.layer.borderColor = UIColor.blackColor().CGColor
+        
+//        cell.thirdView.backgroundColor = UIColor.lightGrayColor()
+        cell.thirdView.layer.cornerRadius = 7.0
+        cell.thirdView.layer.borderWidth = 1.0
+        cell.thirdView.layer.borderColor = UIColor.blackColor().CGColor
+        
+//        cell.fourthView.backgroundColor = UIColor.lightGrayColor()
+        cell.fourthView.layer.cornerRadius = 7.0
+        cell.fourthView.layer.borderWidth = 1.0
+        cell.fourthView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        cell.themeImage.layer.cornerRadius = 7.0
+        cell.themeImage.layer.borderWidth = 3.0
+        cell.themeImage.layer.borderColor = UIColor.whiteColor().CGColor
+        
+//        cell.layer.backgroundColor = UIColor.darkGrayColor().CGColor
+//        cell.layer.cornerRadius = 7.0
+        
     
     
         return cell

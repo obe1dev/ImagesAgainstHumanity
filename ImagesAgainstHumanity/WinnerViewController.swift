@@ -29,6 +29,13 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let centerCell = CenterCellCollectionView()
+        
+        
+        
+        
+        //centerCell.targetContentOffsetForProposedContentOffset(<#T##proposedContentOffset: CGPoint##CGPoint#>, withScrollingVelocity: <#T##CGPoint#>)
+        
         theme = (ThemeController.sharedInstance.currentTheme?.name)!
         
         if self.theme == "Black Cards"{
@@ -54,6 +61,11 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         winnerArray.append("")
     
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 1, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
