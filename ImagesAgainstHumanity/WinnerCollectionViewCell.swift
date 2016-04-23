@@ -11,5 +11,6 @@ import UIKit
 class WinnerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var winnerTextlabel: UILabel!
+    @IBOutlet weak var innerView: UIView!
         
 }

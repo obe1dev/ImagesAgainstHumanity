@@ -15,6 +15,7 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var winnerThemeImage: UIImageView!
     @IBOutlet weak var winningCardLabel: UILabel!
     
+    
     var theme = ""
     
     var winnerArray = [String]()
@@ -57,15 +58,15 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         winnerArray = WinnerController.sharedInstance.winnerArray
         
         //this will help the fromatting on the collection view
-        winnerArray.insert("", atIndex: 0)
-        winnerArray.append("")
+//        winnerArray.insert("", atIndex: 0)
+//        winnerArray.append("")
     
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 1, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: true)
+        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +96,8 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         let nameLabel = winnerArray[indexPath.row]
         
         cell.winnerTextlabel.text = nameLabel
+        
+        cell.innerView.layer.cornerRadius = 7.0
         
         cell.layer.cornerRadius = 7.0
         
