@@ -43,6 +43,10 @@ class AppearanceController {
 
 extension UIColor {
     
+    func cardColor() -> UIColor {
+        return UIColor.purpleColor()
+    }
+    
     func lightGreen() -> UIColor {
         return UIColor(red: 237/255, green: 255/255, blue: 236/255, alpha: 1.0)
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate {
     
@@ -146,6 +147,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     
 
     // MARK: - Table view data source
+
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -182,7 +184,8 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             cell.captionText.text = ""
             
             self.addShadow(cell.captionText)
-            
+
+//            
             if cell.cellDelegate == nil{
                 
                 cell.cellDelegate = self
@@ -195,20 +198,23 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
 
         
     }
-
+    
+    
     func addShadow(cell:UIView){
         
         cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
         cell.layer.shadowOpacity = 0.7
-        cell.layer.masksToBounds = false
-        cell.layer.shouldRasterize = false
-        cell.layer.shadowOffset = CGSizeMake(5,5)
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5.0).CGPath
+        cell.layer.shadowOffset = CGSizeMake(-5, 5)
         
         
+//        cell.layer.masksToBounds = true
+//        cell.layer.shouldRasterize = true
+//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5.0).CGPath
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
         
         if indexPath.row == displayedPhrases.count + 1 {
             print("selected text field cell")

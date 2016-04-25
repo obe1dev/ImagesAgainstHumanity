@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "themeCell"
 
-class ThemeCollectionViewController: UICollectionViewController{
+class ThemeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //var themelables = [Theme]()
 
@@ -77,55 +77,44 @@ class ThemeCollectionViewController: UICollectionViewController{
         cell.themeLabel.text = theme.name
         cell.themeImage.image = theme.coverImage
         
-        cell.firstView.backgroundColor = UIColor.purpleColor()
-        cell.firstView.layer.cornerRadius = 7.0
-        cell.firstView.layer.borderWidth = 1.0
+       
+        self.cardFormat(cell.firstView)
+        self.addShadow(cell.firstView)
         
-        cell.firstView.layer.borderColor = UIColor.blackColor().CGColor
-        cell.firstView.layer.shadowColor = UIColor.lightGrayColor().CGColor
+        self.cardFormat(cell.secondView)
+        self.addShadow(cell.secondView)
+
         
-        cell.firstView.layer.masksToBounds = false
-        cell.firstView.layer.shadowOffset = CGSizeMake(-3, -3)
-        cell.firstView.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.firstView.layer.shadowRadius = 7.0
-//        cell.firstView.layer.shadowOpacity = 1.0
-        cell.layer.shouldRasterize = true
+        self.cardFormat(cell.thirdView)
+        self.addShadow(cell.thirdView)
+
         
-        
-        
-//        cell.themeLabel.layer.cornerRadius = 7.0
-//        cell.themeLabel.layer.backgroundColor = UIColor.whiteColor().CGColor
-        
-//        cell.cardStackView.backgroundColor = UIColor.whiteColor()
-        
-        cell.secondView.backgroundColor = UIColor.lightGrayColor()
-        cell.secondView.layer.cornerRadius = 7.0
-        cell.secondView.layer.borderWidth = 1.0
-        cell.secondView.layer.borderColor = UIColor.blackColor().CGColor
-        
-        cell.thirdView.backgroundColor = UIColor.grayColor()
-        cell.thirdView.layer.cornerRadius = 7.0
-        cell.thirdView.layer.borderWidth = 1.0
-        cell.thirdView.layer.borderColor = UIColor.blackColor().CGColor
-        
-        cell.fourthView.backgroundColor = UIColor.blackColor()
-        cell.fourthView.layer.cornerRadius = 7.0
-        cell.fourthView.layer.borderWidth = 1.0
-        cell.fourthView.layer.borderColor = UIColor.blackColor().CGColor
+        self.cardFormat(cell.fourthView)
+
         
         cell.themeImage.layer.cornerRadius = 7.0
         cell.themeImage.layer.borderWidth = 3.0
-        cell.themeImage.layer.borderColor = UIColor().medPink().CGColor
-        
-//        cell.layer.backgroundColor = UIColor.darkGrayColor().CGColor
-//        cell.layer.cornerRadius = 7.0
-        
+        cell.themeImage.layer.borderColor = UIColor().cardColor().CGColor
     
     
         return cell
     }
     
-    //MARK: style image
+    func cardFormat(cell:UIView){
+        cell.backgroundColor =  UIColor().cardColor()
+        cell.layer.cornerRadius = 7.0
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    
+    func addShadow(cell:UIView){
+        
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowRadius = 1.4
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowOffset = CGSizeMake(-1, 1)
+    }
+    
     
     
     // MARK: UICollectionViewDelegate

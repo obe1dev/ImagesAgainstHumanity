@@ -14,7 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syc-W5-CL7">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="syc-W5-CL7">
                             <size key="itemSize" width="144" height="231"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -111,7 +111,7 @@
         <scene sceneID="APN-GE-MXN">
             <objects>
                 <tableViewController id="Mbh-t5-phq" customClass="PickCaptionTableViewController" customModule="ImagesAgainstHumanity" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="meS-aT-AWw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="meS-aT-AWw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,33 +143,39 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="phraseCell" id="xed-SI-T5J" customClass="PhraseTableViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="337" width="600" height="55"/>
+                                <rect key="frame" x="0.0" y="337" width="600" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xed-SI-T5J" id="UMl-wb-rIz">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uia-xy-BpW">
-                                            <rect key="frame" x="8" y="8" width="584" height="39"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="59"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-zj-kaX">
-                                            <rect key="frame" x="8" y="11" width="584" height="32"/>
+                                            <rect key="frame" x="8" y="12" width="584" height="50.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Eky-zj-kaX" secondAttribute="bottom" constant="3.5" id="3g9-34-8Js"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Eky-zj-kaX" secondAttribute="bottom" constant="4.5" id="3g9-34-8Js"/>
                                         <constraint firstItem="Eky-zj-kaX" firstAttribute="trailing" secondItem="UMl-wb-rIz" secondAttribute="trailingMargin" id="7sE-Ao-ka0"/>
-                                        <constraint firstItem="Eky-zj-kaX" firstAttribute="top" secondItem="UMl-wb-rIz" secondAttribute="topMargin" constant="3" id="DrT-JU-V0z"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Uia-xy-BpW" secondAttribute="bottom" constant="10" id="Ans-0c-UCY"/>
+                                        <constraint firstItem="Eky-zj-kaX" firstAttribute="top" secondItem="UMl-wb-rIz" secondAttribute="topMargin" constant="4" id="DrT-JU-V0z"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Eky-zj-kaX" secondAttribute="bottom" constant="14.5" id="PQI-2f-MNu"/>
                                         <constraint firstItem="Uia-xy-BpW" firstAttribute="trailing" secondItem="UMl-wb-rIz" secondAttribute="trailingMargin" id="QVX-8S-LaY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Uia-xy-BpW" secondAttribute="bottom" id="ZCJ-z0-yfQ"/>
                                         <constraint firstItem="Uia-xy-BpW" firstAttribute="top" secondItem="UMl-wb-rIz" secondAttribute="topMargin" id="axC-Wv-2di"/>
                                         <constraint firstItem="Eky-zj-kaX" firstAttribute="leading" secondItem="UMl-wb-rIz" secondAttribute="leadingMargin" id="es9-jz-Nhp"/>
                                         <constraint firstItem="Uia-xy-BpW" firstAttribute="leading" secondItem="UMl-wb-rIz" secondAttribute="leadingMargin" id="zwd-op-NXh"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="3g9-34-8Js"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellView" destination="Uia-xy-BpW" id="EAF-BI-8SV"/>
@@ -177,14 +183,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCaptionCell" rowHeight="56" id="boN-7R-SCn" customClass="CaptionTableViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="392" width="600" height="56"/>
+                                <rect key="frame" x="0.0" y="422" width="600" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="boN-7R-SCn" id="ji2-ju-n3h">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your caption here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="02G-TR-EZd">
-                                            <rect key="frame" x="8" y="7" width="584" height="42"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -193,10 +199,10 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="02G-TR-EZd" firstAttribute="top" secondItem="ji2-ju-n3h" secondAttribute="topMargin" constant="-1" id="b4d-Xa-a0J"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="02G-TR-EZd" secondAttribute="bottom" constant="-1.5" id="bZd-4k-NN5"/>
-                                        <constraint firstItem="02G-TR-EZd" firstAttribute="leading" secondItem="ji2-ju-n3h" secondAttribute="leadingMargin" id="eho-Cd-ptM"/>
-                                        <constraint firstItem="02G-TR-EZd" firstAttribute="trailing" secondItem="ji2-ju-n3h" secondAttribute="trailingMargin" id="jU5-d3-hCj"/>
+                                        <constraint firstItem="02G-TR-EZd" firstAttribute="leading" secondItem="ji2-ju-n3h" secondAttribute="leadingMargin" id="5X8-Wg-eBt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="02G-TR-EZd" secondAttribute="bottom" constant="10" id="Coq-Bz-6u8"/>
+                                        <constraint firstItem="02G-TR-EZd" firstAttribute="top" secondItem="ji2-ju-n3h" secondAttribute="topMargin" id="bpp-pX-chF"/>
+                                        <constraint firstItem="02G-TR-EZd" firstAttribute="trailing" secondItem="ji2-ju-n3h" secondAttribute="trailingMargin" id="qvq-ED-oTh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
