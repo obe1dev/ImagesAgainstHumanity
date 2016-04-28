@@ -189,8 +189,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYK-Lb-yna" userLabel="captionView">
+                                            <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your caption here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="02G-TR-EZd">
                                             <rect key="frame" x="8" y="8" width="584" height="30"/>
+                                            <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -199,14 +206,19 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="NYK-Lb-yna" firstAttribute="leading" secondItem="ji2-ju-n3h" secondAttribute="leadingMargin" id="4uB-TH-Mo3"/>
                                         <constraint firstItem="02G-TR-EZd" firstAttribute="leading" secondItem="ji2-ju-n3h" secondAttribute="leadingMargin" id="5X8-Wg-eBt"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="02G-TR-EZd" secondAttribute="bottom" constant="10" id="Coq-Bz-6u8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NYK-Lb-yna" secondAttribute="bottom" constant="10" id="Map-X9-wV5"/>
                                         <constraint firstItem="02G-TR-EZd" firstAttribute="top" secondItem="ji2-ju-n3h" secondAttribute="topMargin" id="bpp-pX-chF"/>
+                                        <constraint firstItem="NYK-Lb-yna" firstAttribute="trailing" secondItem="ji2-ju-n3h" secondAttribute="trailingMargin" id="byW-Q4-NsE"/>
                                         <constraint firstItem="02G-TR-EZd" firstAttribute="trailing" secondItem="ji2-ju-n3h" secondAttribute="trailingMargin" id="qvq-ED-oTh"/>
+                                        <constraint firstItem="NYK-Lb-yna" firstAttribute="top" secondItem="ji2-ju-n3h" secondAttribute="topMargin" id="yK0-XI-LRU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="captionText" destination="02G-TR-EZd" id="ZzF-nR-Pgb"/>
+                                    <outlet property="captionView" destination="NYK-Lb-yna" id="Xes-1s-IIZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

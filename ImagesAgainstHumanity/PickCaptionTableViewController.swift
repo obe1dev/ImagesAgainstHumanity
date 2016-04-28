@@ -182,13 +182,14 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         } else {
         
             let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell") as! CaptionTableViewCell
-            cell.captionText.placeholder = "Add your caption here"
-           
-            cell.captionText.text = ""
             
-            self.addShadow(cell.captionText)
+            cell.captionText.backgroundColor = UIColor().lightRed()
+            
+            cell.captionView.layer.cornerRadius = 7
+            
+            self.addShadow(cell.captionView)
 
-//            
+            
             if cell.cellDelegate == nil{
                 
                 cell.cellDelegate = self
@@ -210,10 +211,6 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         cell.layer.shadowOffset = CGSizeMake(-5, 5)
         
         
-//        cell.layer.masksToBounds = true
-//        cell.layer.shouldRasterize = true
-//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
-//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 5.0).CGPath
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

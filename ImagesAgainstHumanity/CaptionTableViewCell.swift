@@ -11,6 +11,7 @@ import UIKit
 class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var captionText: UITextField!
+    @IBOutlet weak var captionView: UIView!
     
     var cellDelegate = CaptionCellDelegate?()
     
