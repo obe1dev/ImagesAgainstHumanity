@@ -14,15 +14,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="syc-W5-CL7">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="syc-W5-CL7">
                             <size key="itemSize" width="144" height="231"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="15" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="themeCell" id="fCf-Co-IHr" customClass="ThemeCollectionViewCell" customModule="ImagesAgainstHumanity" customModuleProvider="target">
-                                <rect key="frame" x="20" y="84" width="144" height="231"/>
+                                <rect key="frame" x="10" y="79" width="144" height="231"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="144" height="231"/>
@@ -218,6 +218,7 @@
                     <navigationItem key="navigationItem" id="gv4-1p-Nay"/>
                     <connections>
                         <outlet property="captionImage" destination="Pic-k1-uth" id="FVF-CH-78w"/>
+                        <outlet property="imageViewBackground" destination="anu-6q-OTF" id="RI0-Ci-89L"/>
                         <outlet property="pickedCard" destination="vPQ-Rg-qYa" id="2se-VY-vY9"/>
                         <segue destination="29D-wN-xa2" kind="presentation" identifier="toWinner" id="3qP-4Q-LBh"/>
                     </connections>
@@ -245,10 +246,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="266.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sw5-Ss-qKC">
-                                                <rect key="frame" x="8" y="8" width="584" height="250"/>
+                                                <rect key="frame" x="8" y="8" width="584" height="250.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u81-V8-vZF">
-                                                <rect key="frame" x="18" y="18" width="564" height="230"/>
+                                                <rect key="frame" x="18" y="18" width="564" height="230.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -267,9 +268,9 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNM-2C-hxp">
-                                        <rect key="frame" x="0.0" y="269.5" width="600" height="266.5"/>
+                                        <rect key="frame" x="0.0" y="269" width="600" height="266.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3q4-wP-eiR" customClass="CenterCellCollectionView" customModule="ImagesAgainstHumanity" customModuleProvider="target">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="15" id="3q4-wP-eiR" customClass="CenterCellCollectionView" customModule="ImagesAgainstHumanity" customModuleProvider="target">
                                             <size key="itemSize" width="180" height="224"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -343,7 +344,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="allBackgroundVew" destination="XfW-RJ-JBG" id="bwd-2u-0yN"/>
                         <outlet property="collectionView" destination="zNM-2C-hxp" id="8CM-C7-6y6"/>
+                        <outlet property="imageViewBackground" destination="mGE-7g-doO" id="XY4-HL-Fxk"/>
                         <outlet property="winnerThemeImage" destination="Sw5-Ss-qKC" id="rej-AN-FNH"/>
                         <outlet property="winningCardLabel" destination="u81-V8-vZF" id="Jwk-iU-0oz"/>
                     </connections>

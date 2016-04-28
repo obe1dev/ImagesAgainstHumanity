@@ -21,6 +21,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     var winnerArray = [String]()
     var captionPicked = ""
     
+    @IBOutlet weak var imageViewBackground: UIView!
     
     @IBOutlet weak var captionImage: UIImageView!
     
@@ -29,6 +30,8 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().CGColor
         
         theme = (ThemeController.sharedInstance.currentTheme?.name)!
         
@@ -171,7 +174,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             cell.phraseLabel.text = displayedPhrases[indexPath.row]
             
             cell.cellView.layer.cornerRadius = 7
-            cell.cellView.backgroundColor = UIColor().lightPink()
+            cell.cellView.backgroundColor = UIColor().lightRed()
             //cell.phraseLabel.text = phrases[indexPath.row]
             self.addShadow(cell.cellView)
             
@@ -253,7 +256,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
         let aletView = JSSAlertView()
         
-        aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor.purpleColor())
+        aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor().lightRed())
         aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
         
         aletView.addAction(addCaptionToWinnerArray)

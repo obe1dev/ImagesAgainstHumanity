@@ -15,6 +15,8 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var winnerThemeImage: UIImageView!
     @IBOutlet weak var winningCardLabel: UILabel!
     
+    @IBOutlet weak var imageViewBackground: UIView!
+    @IBOutlet var allBackgroundVew: UIView!
     
     var theme = ""
     
@@ -29,6 +31,9 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allBackgroundVew.layer.backgroundColor = UIColor().backgroundColor().CGColor
+        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().CGColor
         
 //        let centerCell = CenterCellCollectionView()
         
@@ -101,9 +106,11 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.winnerTextlabel.text = nameLabel
         
         cell.innerView.layer.cornerRadius = 7.0
+        cell.innerView.layer.backgroundColor = UIColor().cardColor().CGColor
         
         cell.layer.cornerRadius = 7.0
         
+        cell.layer.backgroundColor = UIColor().grey().CGColor
         
         cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
         cell.layer.shadowOpacity = 0.7
