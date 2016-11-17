@@ -17,7 +17,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     var pickedImage = UIImage()
     var phrases = [String]()
     var displayedPhrases = [String]()
-    var dataArray = []
+    var dataArray = [] as NSArray
     var winnerArray = [String]()
     var captionPicked = ""
     
@@ -31,7 +31,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().CGColor
+        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().cgColor
         
         theme = (ThemeController.sharedInstance.currentTheme?.name)!
         
@@ -40,15 +40,15 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                 
                 self.phrases = (PickedCatagoryController.sharedInstance.currentTheme?.phrases)!
                 
-                self.dataArray = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)!
+                self.dataArray = (PickedCatagoryController.sharedInstance.currentTheme?.themeImages)! as NSArray
                 
                 if self.theme == "Black Cards"{
                     
-                    self.pickedCard.text =  PickedCatagoryController.sharedInstance.currentTheme?.themeImages[self.getRandPhrase(self.dataArray)]
+                    self.pickedCard.text =  PickedCatagoryController.sharedInstance.currentTheme?.themeImages[self.getRandPhrase(self.dataArray as NSArray)]
                     
-                    self.pickedCard.textColor = .whiteColor()
+                    self.pickedCard.textColor = .white
                     
-                    self.captionImage.backgroundColor = .blackColor()
+                    self.captionImage.backgroundColor = .black
                     self.captionImage.layer.cornerRadius = 10.0
                 
                 
@@ -56,7 +56,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                     
                     
                     
-                    self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.dataArray))
+                    self.captionImage.image = UIImage(data: self.getRandomNumAndDecode(self.dataArray as NSArray))
                     
                     self.captionImage.layer.borderWidth = 3.0
                     self.captionImage.layer.cornerRadius = 10.0
@@ -64,7 +64,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                     
 //                    self.captionImage.layer.shadowColor = UIColor.
                     
-                    self.pickedCard.hidden = true
+                    self.pickedCard.isHidden = true
                 
                 }
                 
@@ -95,9 +95,9 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
                 return
             }
             
-            let randomNum = self.getRandPhrase(tempArray)
+            let randomNum = self.getRandPhrase(tempArray as NSArray)
             self.displayedPhrases.append(tempArray[randomNum])
-            tempArray.removeAtIndex(randomNum)
+            tempArray.remove(at: randomNum)
             
         }
         
@@ -105,7 +105,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     
     
     
-    func getRandPhrase(array: NSArray) -> Int {
+    func getRandPhrase(_ array: NSArray) -> Int {
         
         let numberOfPhrases = array.count
         
@@ -117,7 +117,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
     }
     
-    func getRandomNumAndDecode(array: NSArray) -> NSData {
+    func getRandomNumAndDecode(_ array: NSArray) -> Data {
         
         let numberOfThemes = array.count
         
@@ -127,21 +127,21 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         
         if let imageData = array[randomNum] as? String {
             
-            return decodeImage(imageData)
+            return decodeImage(imageData as NSString)
             
         } else {
             NSLog("error in getRandomNum func")
             
-            return NSData()
+            return Data()
         }
         
         
         
     }
     
-    func decodeImage(image: NSString) -> NSData {
+    func decodeImage(_ image: NSString) -> Data {
         
-        let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
+        let decodeData = Data(base64Encoded: image as String, options: NSData.Base64DecodingOptions(rawValue: 0))
         
         return decodeData!
         
@@ -152,24 +152,24 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     // MARK: - Table view data source
 
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return displayedPhrases.count + 1
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         //this will send the pre-built captions
         
         if indexPath.row < displayedPhrases.count {
-            let cell = tableView.dequeueReusableCellWithIdentifier("phraseCell") as! PhraseTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "phraseCell") as! PhraseTableViewCell
             
             cell.phraseLabel.text = displayedPhrases[indexPath.row]
             
@@ -181,7 +181,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
             return cell
         } else {
         
-            let cell = tableView.dequeueReusableCellWithIdentifier("addCaptionCell") as! CaptionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addCaptionCell") as! CaptionTableViewCell
             
             cell.captionText.backgroundColor = UIColor().lightRed()
             
@@ -204,16 +204,16 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     }
     
     
-    func addShadow(cell:UIView){
+    func addShadow(_ cell:UIView){
         
-        cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
         cell.layer.shadowOpacity = 0.7
-        cell.layer.shadowOffset = CGSizeMake(-5, 5)
+        cell.layer.shadowOffset = CGSize(width: -5, height: 5)
         
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         
         if indexPath.row == displayedPhrases.count + 1 {
@@ -230,7 +230,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
     }
     
     //MARK: CaptionCellDelegate
-    func cellTapped(cell: CaptionTableViewCell) {
+    func cellTapped(_ cell: CaptionTableViewCell) {
         
         if cell.captionText.text != "" {
             
@@ -254,7 +254,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         let aletView = JSSAlertView()
         
         aletView.show(self, title: "Pass or End", text: "Pass to another player. Or End the round", buttonText: "Pass", cancelButtonText: "End", color: UIColor().lightRed())
-        aletView.setTextTheme(JSSAlertView.TextColorTheme.Light)
+        aletView.setTextTheme(JSSAlertView.TextColorTheme.light)
         
         aletView.addAction(addCaptionToWinnerArray)
         aletView.addCancelAction(endRound)
@@ -283,7 +283,7 @@ class PickCaptionTableViewController: UITableViewController, CaptionCellDelegate
         WinnerController.sharedInstance.themeImage = pickedImage
         WinnerController.sharedInstance.pickedCard = pickedCard
         
-        performSegueWithIdentifier("toWinner", sender: self)
+        performSegue(withIdentifier: "toWinner", sender: self)
         
     }
     

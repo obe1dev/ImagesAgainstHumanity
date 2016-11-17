@@ -13,16 +13,16 @@ class ThemeController {
     
     static let sharedInstance = ThemeController()
     
-    private(set) var themes = [Theme]()
-    private(set) var currentTheme: Theme?
+    fileprivate(set) var themes = [Theme]()
+    fileprivate(set) var currentTheme: Theme?
     var themeImage = UIImage()
 
     
-    func fetchAllThemes(completion: (success: Bool) -> Void){
-        
+    func fetchAllThemes(completion:@escaping (_ success: Bool) -> Void){
+    
         FirebaseController.sharedController.getThemes { (data) in
             
-            guard let jsonArray = data as? [[String: AnyObject]] else { completion(success: false); return }
+            guard let jsonArray = data as? [[String: AnyObject]] else { completion(false); return }
             
             self.themes = []
             for json in jsonArray {
@@ -34,7 +34,7 @@ class ThemeController {
                 }
             }
             
-            completion(success: true)
+            completion(true)
             
         }
         
@@ -47,15 +47,15 @@ class ThemeController {
         // Return that object
 //    }
     
-    func themeAtIndexPath(indexPath: NSIndexPath) -> Theme {
+    func themeAtIndexPath(_ indexPath: IndexPath) -> Theme {
         return themes[indexPath.item]
     }
     
-    func selectTheme(theme: Theme) {
+    func selectTheme(_ theme: Theme) {
         currentTheme = theme
     }
     
-    static func fetchThemeData (themeTitle: String?){
+    static func fetchThemeData (_ themeTitle: String?){
         
 //        FirebaseController.
         

@@ -16,7 +16,7 @@ class AppearanceController {
         
         
         let backgroundColor = UIColor().backgroundColor()
-        let textColor = UIColor.whiteColor()
+        let textColor = UIColor.white
         
         //nav bar
         let nav = UINavigationBar.appearance()

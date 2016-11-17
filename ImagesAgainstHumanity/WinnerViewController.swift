@@ -23,7 +23,7 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     var winnerArray = [String]()
     //var winnerArray = ["WOW!","I beat anorexia","this will take a crane to get me out","fat guy in a little lake","cannonball!!"]
     
-    private let reuseIdentifier = "winnerCell"
+    fileprivate let reuseIdentifier = "winnerCell"
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,8 +32,8 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allBackgroundVew.layer.backgroundColor = UIColor().backgroundColor().CGColor
-        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().CGColor
+        allBackgroundVew.layer.backgroundColor = UIColor().backgroundColor().cgColor
+        imageViewBackground.layer.backgroundColor = UIColor().backgroundColor().cgColor
         
 //        let centerCell = CenterCellCollectionView()
         
@@ -46,11 +46,11 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         if self.theme == "Black Cards"{
             
-            self.winnerThemeImage.backgroundColor = UIColor.blackColor()
+            self.winnerThemeImage.backgroundColor = UIColor.black
             self.winnerThemeImage.layer.cornerRadius = 10.0
             
             self.winningCardLabel.text = WinnerController.sharedInstance.pickedCard.text
-            self.winningCardLabel.textColor = UIColor.whiteColor()
+            self.winningCardLabel.textColor = UIColor.white
         
         }else{
 
@@ -59,7 +59,7 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
             winnerThemeImage.layer.cornerRadius = 10
             winnerThemeImage.layer.borderWidth = 3
             
-            self.winningCardLabel.hidden = true
+            self.winningCardLabel.isHidden = true
             
         }
         
@@ -72,9 +72,9 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,13 +86,13 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
     //MARK: - Collection View
     
         
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return winnerArray.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! WinnerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! WinnerCollectionViewCell
         
         if indexPath.row == 0 {
             
@@ -106,30 +106,30 @@ class WinnerViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.winnerTextlabel.text = nameLabel
         
         cell.innerView.layer.cornerRadius = 7.0
-        cell.innerView.layer.backgroundColor = UIColor().cardColor().CGColor
+        cell.innerView.layer.backgroundColor = UIColor().cardColor().cgColor
         
         cell.layer.cornerRadius = 7.0
         
-        cell.layer.backgroundColor = UIColor().grey().CGColor
+        cell.layer.backgroundColor = UIColor().grey().cgColor
         
-        cell.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
         cell.layer.shadowOpacity = 0.7
         // cell.layer.shadowRadius = 7.0
         cell.layer.masksToBounds = false
         cell.layer.shouldRasterize = false
-        cell.layer.shadowOffset = CGSizeMake(-8, 8)
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 10.0).CGPath
+        cell.layer.shadowOffset = CGSize(width: -8, height: 8)
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 10.0).cgPath
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return 23.0
         
     }
 
-    @IBAction func winnerButton(sender: AnyObject) {
+    @IBAction func winnerButton(_ sender: AnyObject) {
         
     }
     

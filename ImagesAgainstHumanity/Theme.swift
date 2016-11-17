@@ -26,15 +26,15 @@ struct Theme {
     
     // MARK: - Keys
     
-    private let nameKey = "name"
-    private let imageKey = "image"
+    fileprivate let nameKey = "name"
+    fileprivate let imageKey = "image"
     
     init(json: [String: AnyObject]) throws {
-        guard let name = json[nameKey] as? String else { throw FirebaseController.ParseError.ValueNotFound(key: nameKey) }
+        guard let name = json[nameKey] as? String else { throw FirebaseController.ParseError.valueNotFound(key: nameKey) }
         self.name = name
-        guard let imageString = json[imageKey] as? String else { throw FirebaseController.ParseError.ValueNotFound(key: imageKey) }
+        guard let imageString = json[imageKey] as? String else { throw FirebaseController.ParseError.valueNotFound(key: imageKey) }
         
-        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
+        let decodedData = Data(base64Encoded: imageString, options: NSData.Base64DecodingOptions(rawValue: 0))
         
         coverImage = UIImage(data: decodedData!)
     }

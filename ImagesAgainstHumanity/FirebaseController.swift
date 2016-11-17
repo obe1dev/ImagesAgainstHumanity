@@ -11,39 +11,39 @@ import Firebase
 
 class FirebaseController  {
     
-    enum ParseError: ErrorType {
-        case ValueNotFound(key: String)
+    enum ParseError: Error {
+        case valueNotFound(key: String)
     }
     
     static let sharedController = FirebaseController()
     
-    private let base = Firebase(url: "https://imagesagainsthumanit.firebaseio.com")
+    fileprivate let base = Firebase(url: "https://imagesagainsthumanit.firebaseio.com")
     
-    func getThemes(completion: (data: AnyObject?) -> Void) {
+    func getThemes(_ completion: @escaping (_ data: AnyObject?) -> Void) {
         
-        let objects = base.childByAppendingPath("themeObjects")
+        let objects = base?.child(byAppendingPath: "themeObjects")
         
-        objects.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            if snapshot.value is NSNull {
+        objects?.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot?.value is NSNull {
                 NSLog("no info for snapshot")
-                completion(data: nil)
+                completion(nil)
             } else {
-                completion(data: snapshot.value)
+                completion(snapshot?.value as AnyObject?)
             }
         })
         
     }
     
-    func getThemeData(completion: (json: [String: AnyObject]?) -> Void){
+    func getThemeData(_ completion: @escaping (_ json: [String: AnyObject]?) -> Void){
         
-        let objects = base.childByAppendingPath("themes/\(ThemeController.sharedInstance.currentTheme!.name)")
+        let objects = base?.child(byAppendingPath: "themes/\(ThemeController.sharedInstance.currentTheme!.name)")
         
-        objects.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        objects?.observeSingleEvent(of: .value, with: { (snapshot) in
             
-            if snapshot.value is NSNull{
-                completion(json: nil)
+            if snapshot?.value is NSNull{
+                completion(nil)
             } else {
-                completion(json: snapshot.value as? [String: AnyObject])
+                completion(snapshot?.value as? [String: AnyObject])
             }
             
         })
@@ -51,20 +51,20 @@ class FirebaseController  {
     }
     
     //this will go and fetch all theme titles in firebase
-    func getThemesTitle(completion: (data: AnyObject?) -> Void) {
+    func getThemesTitle(_ completion: @escaping (_ data: AnyObject?) -> Void) {
         
-        let theme = base.childByAppendingPath("themeNames")
+        let theme = base?.child(byAppendingPath: "themeNames")
         
-        theme.observeEventType(.Value, withBlock: { (snapshot) in
+        theme?.observe(.value, with: { (snapshot) in
             
-            if snapshot.value is NSNull{
+            if snapshot?.value is NSNull{
                 
-                completion(data: nil)
+                completion(nil)
                 NSLog("no info for snapshot")
                 
             } else {
                 
-                completion(data: snapshot.value)
+                completion(snapshot?.value as AnyObject?)
                 
 //                if let themeTitle = snapshot.value as? [String] {
 //                
@@ -83,20 +83,23 @@ class FirebaseController  {
     }
     
     // this will access a specific themes photo
-    func getTheme(themePicked: String, completion: (data: AnyObject?) -> Void) {
+    func getTheme(_ themePicked: String, completion: @escaping (_ data: AnyObject?) -> Void) {
         
-        let theme = base.childByAppendingPath("themes/\(themePicked)")
+        let theme = base?.child(byAppendingPath: "themes/\(themePicked)")
         
-        theme.observeEventType(.Value, withBlock: { (snapshot) in
+        theme?.observe(.value, with: { (snapshot) in
             
-            if snapshot.value is NSNull{
+            if snapshot?.value is NSNull{
                 
-                completion(data: nil)
+                completion(nil)
                 NSLog("no info for snapshot")
                 
             } else {
                 
-                if let themeTitle = snapshot.value[""] as? [String] {
+                let snapshotValue = snapshot?.value as? NSDictionary
+               
+                
+                if let themeTitle = snapshotValue?[""] as? [String] {
                     
                     for _ in themeTitle {
 //                        let theme  = Theme.init(themeTitle: theme)
@@ -111,34 +114,7 @@ class FirebaseController  {
         })
     }
 
-    
-//    func setupFirebase() {
-//        // *** STEP 2: SETUP FIREBASE
-//        messagesRef = Firebase(url: "https://swift-chat-dev.firebaseio.com/messages")
-//        
-//        // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
-//        messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-//            let text = snapshot.value["text"] as? String
-//            let sender = snapshot.value["sender"] as? String
-//            let imageUrl = snapshot.value["imageUrl"] as? String
-//            
-//            let message = Message(text: text, sender: sender, imageUrl: imageUrl)
-//            self.messages.append(message)
-//            self.finishReceivingMessage()
-//        })
-//    }
-//    
-//    func sendMessage(text: String!, sender: String!) {
-//        // *** STEP 3: ADD A MESSAGE TO FIREBASE
-//        messagesRef.childByAutoId().setValue([
-//            "text":text,
-//            "sender":sender,
-//            "imageUrl":senderImageUrl
-//            ])
-//    }
 
-    
-    
 }
 
 

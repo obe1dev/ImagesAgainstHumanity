@@ -13,7 +13,7 @@ class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var captionText: UITextField!
     @IBOutlet weak var captionView: UIView!
     
-    var cellDelegate = CaptionCellDelegate?()
+    var cellDelegate: CaptionCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,13 +21,13 @@ class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.captionText.delegate = self
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let delegate = cellDelegate {
             delegate.cellTapped(self)
@@ -42,5 +42,5 @@ class CaptionTableViewCell: UITableViewCell, UITextFieldDelegate {
 
 //MARK: Delegate
 protocol CaptionCellDelegate {
-    func cellTapped(cell: CaptionTableViewCell)
+    func cellTapped(_ cell: CaptionTableViewCell)
 }

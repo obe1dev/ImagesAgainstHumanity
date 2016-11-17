@@ -15,7 +15,7 @@ class ThemeCollectionViewController: UICollectionViewController, UICollectionVie
     //var themelables = [Theme]()
 
     
-    @ IBAction func unwindTofirst(segue: UIStoryboardSegue) {}
+    @ IBAction func unwindTofirst(_ segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,10 @@ class ThemeCollectionViewController: UICollectionViewController, UICollectionVie
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         
-        guard let captionView = segue.destinationViewController as? PickCaptionTableViewController, cell = sender as? UICollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) else { return }
+        guard let captionView = segue.destination as? PickCaptionTableViewController, let cell = sender as? UICollectionViewCell, let indexPath = collectionView?.indexPath(for: cell) else { return }
         let theme = ThemeController.sharedInstance.themeAtIndexPath(indexPath)
         
         ThemeController.sharedInstance.selectTheme(theme)
@@ -65,12 +65,12 @@ class ThemeCollectionViewController: UICollectionViewController, UICollectionVie
     // MARK: UICollectionViewDataSource
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ThemeController.sharedInstance.themes.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ThemeCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ThemeCollectionViewCell
         
         let theme = ThemeController.sharedInstance.themeAtIndexPath(indexPath)
         
@@ -94,25 +94,25 @@ class ThemeCollectionViewController: UICollectionViewController, UICollectionVie
         
         cell.themeImage.layer.cornerRadius = 7.0
         cell.themeImage.layer.borderWidth = 3.0
-        cell.themeImage.layer.borderColor = UIColor().cardColor().CGColor
+        cell.themeImage.layer.borderColor = UIColor().cardColor().cgColor
     
     
         return cell
     }
     
-    func cardFormat(cell:UIView){
+    func cardFormat(_ cell:UIView){
         cell.backgroundColor =  UIColor().cardColor()
         cell.layer.cornerRadius = 7.0
         cell.layer.borderWidth = 1.0
-        cell.layer.borderColor = UIColor.blackColor().CGColor
+        cell.layer.borderColor = UIColor.black.cgColor
     }
     
-    func addShadow(cell:UIView){
+    func addShadow(_ cell:UIView){
         
-        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowRadius = 1.4
         cell.layer.shadowOpacity = 1
-        cell.layer.shadowOffset = CGSizeMake(-1, 1)
+        cell.layer.shadowOffset = CGSize(width: -1, height: 1)
     }
     
     

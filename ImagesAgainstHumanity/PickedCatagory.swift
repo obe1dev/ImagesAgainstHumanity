@@ -14,16 +14,16 @@ struct PickedCatagory {
     let phrases:[String]
     let themeImages:[String]
     
-    private let phraseKey = "phrases"
-    private let imageKey = "images"
+    fileprivate let phraseKey = "phrases"
+    fileprivate let imageKey = "images"
     
     init(json: [String: AnyObject]) throws {
         
         
-        guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.ValueNotFound(key: phraseKey)}
+        guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: phraseKey)}
         self.phrases = phrases
         
-        guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.ValueNotFound(key: imageKey)}
+        guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: imageKey)}
         
 //        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
         

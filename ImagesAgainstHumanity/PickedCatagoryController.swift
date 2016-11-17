@@ -13,16 +13,16 @@ class PickedCatagoryController {
     
     static let sharedInstance = PickedCatagoryController()
     
-    private(set) var currentTheme: PickedCatagory?
+    fileprivate(set) var currentTheme: PickedCatagory?
     var randomNum: Int = 0
     var pickedImage = UIImage()
     
-    func fetchThemeData(completion: (success: Bool) -> Void){
+    func fetchThemeData( completion: @escaping (_ success: Bool) -> Void){
         
         FirebaseController.sharedController.getThemeData { json in
 
             guard let json = json else {
-                completion(success: false)
+                completion(false)
                 return
             }
             
@@ -31,10 +31,10 @@ class PickedCatagoryController {
             do {
                 let theme = try PickedCatagory(json: json)
                 self.currentTheme = theme
-                completion(success: true)
+                completion(true)
             } catch {
                 print("Error parsing Theme: \(json)")
-                completion(success: false)
+                completion(false)
             }
             
             
@@ -42,7 +42,7 @@ class PickedCatagoryController {
     }
 
     
-    func getRandomNum(array: NSArray) {
+    func getRandomNum(_ array: NSArray) {
         
         let numberOfThemes = array.count
         
@@ -50,9 +50,9 @@ class PickedCatagoryController {
         
     }
     
-    func decodeImage(image: NSString) {
+    func decodeImage(_ image: NSString) {
         
-        let decodeData = NSData(base64EncodedString: image as String, options: NSDataBase64DecodingOptions(rawValue: 0))
+        let decodeData = Data(base64Encoded: image as String, options: NSData.Base64DecodingOptions(rawValue: 0))
         
         pickedImage = UIImage(data: decodeData!)!
         
