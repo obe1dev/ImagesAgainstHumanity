@@ -45,6 +45,7 @@ class AppearanceController {
     
 }
 
+
 extension UIColor {
     
     func backgroundColor() -> UIColor {
@@ -82,7 +83,5 @@ extension UIColor {
     func lightGrey() -> UIColor {
         return UIColor(red: 237/255, green: 242/255, blue: 244/255, alpha: 1.0)
     }
-    
-    
     
 }

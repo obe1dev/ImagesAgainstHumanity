@@ -107,11 +107,104 @@
                             <outlet property="delegate" destination="mrZ-OG-PkU" id="qTz-U3-RIn"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Pick Theme" id="vkb-H9-D2n"/>
+                    <navigationItem key="navigationItem" title="Pick Theme" id="vkb-H9-D2n">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="KEF-UK-ZWP">
+                            <connections>
+                                <segue destination="NzC-c9-2Mc" kind="show" id="i2B-yA-ee4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIa-XP-7ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1139" y="437"/>
+        </scene>
+        <!--How To Play-->
+        <scene sceneID="yWI-pG-jKD">
+            <objects>
+                <viewController title="How To Play" id="NzC-c9-2Mc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fVl-vD-V04"/>
+                        <viewControllerLayoutGuide type="bottom" id="91h-HE-1p4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="af1-th-MI1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2cZ-a5-k9n">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="This is a pass and play game." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-Pb-VkD">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="102"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="102" id="esC-LP-4vr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CZ-Vq-E7W">
+                                        <rect key="frame" x="0.0" y="110" width="343" height="98"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="98" id="067-9y-mTi"/>
+                                        </constraints>
+                                        <string key="text">To Start you will need at least 4+ Players, one will be a judge and the rest players. Once you have selected your awesome players the game can begin.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nID-Px-9GL">
+                                        <rect key="frame" x="0.0" y="216" width="343" height="100"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="8ao-Jm-i0j"/>
+                                        </constraints>
+                                        <string key="text">1) Have the judge pick a theme they want to play, they will use a random image from that selected theme. After the selection, have the judge pass it to one of the players.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlD-9n-m16">
+                                        <rect key="frame" x="0.0" y="324" width="343" height="160"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="cRL-QP-0tn"/>
+                                        </constraints>
+                                        <string key="text">2) The player will see the image and have the choice of random phrases they will be able to choose between or add their own witty comment. Once the player has made their selection an alert will ask them to "Pass" it to another player, if you are the last player select "Done". </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6d-W5-bjo">
+                                        <rect key="frame" x="0.0" y="492" width="343" height="94"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="94" id="gNl-9U-evZ"/>
+                                        </constraints>
+                                        <string key="text">3) All of the selected phrases will be added to a list. Now the judge can select the funniest one and that will complete the round.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwi-OU-haY">
+                                        <rect key="frame" x="0.0" y="594" width="343" height="33"/>
+                                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">The player on the right side will become the judge for the next round. Repeat until everyone has had a turn being the judge. HAVE FUN!</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2cZ-a5-k9n" firstAttribute="trailing" secondItem="af1-th-MI1" secondAttribute="trailingMargin" id="6k1-0E-kjr"/>
+                            <constraint firstItem="2cZ-a5-k9n" firstAttribute="top" secondItem="af1-th-MI1" secondAttribute="topMargin" constant="20" id="DDd-e5-0kT"/>
+                            <constraint firstItem="91h-HE-1p4" firstAttribute="top" secondItem="2cZ-a5-k9n" secondAttribute="bottom" constant="20" id="MNf-VY-0C4"/>
+                            <constraint firstItem="2cZ-a5-k9n" firstAttribute="leading" secondItem="af1-th-MI1" secondAttribute="leadingMargin" id="UxA-UV-BvQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPf-7z-w8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1893.5999999999999" y="435.83208395802103"/>
         </scene>
         <!--Pick Caption Table View Controller-->
         <scene sceneID="APN-GE-MXN">
