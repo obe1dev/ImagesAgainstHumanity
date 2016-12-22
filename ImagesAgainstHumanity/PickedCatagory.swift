@@ -8,28 +8,40 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-struct PickedCatagory {
+class PickedCatagory: NSManagedObject {
     
-    let phrases:[String]
-    let themeImages:[String]
+    @NSManaged var phrases:[String]
+    @NSManaged var themeImages:[String]
     
     fileprivate let phraseKey = "phrases"
     fileprivate let imageKey = "images"
     
-    init(json: [String: AnyObject]) throws {
+    convenience init(phrases: [String], themeImages: [String], context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         
+        let entity = NSEntityDescription.entity(forEntityName: "PickedCatagory", in: context)!
         
-        guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: phraseKey)}
+        self.init(entity: entity, insertInto: context)
+        
         self.phrases = phrases
+        self.themeImages = themeImages
         
-        guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: imageKey)}
-        
-//        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
-        
-        self.themeImages = imageString
-        //TODO: convet one image from the theme after randomly picked
     }
+    
+//    init(json: [String: AnyObject]) throws {
+//        
+//        
+//        guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: phraseKey)}
+//        self.phrases = phrases
+//        
+//        guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: imageKey)}
+//        
+////        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
+//        
+//        self.themeImages = imageString
+//        //TODO: convet one image from the theme after randomly picked
+//    }
     
     
     

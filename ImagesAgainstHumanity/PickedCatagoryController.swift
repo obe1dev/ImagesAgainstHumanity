@@ -29,7 +29,7 @@ class PickedCatagoryController {
             self.currentTheme = nil
             
             do {
-                let theme = try PickedCatagory(json: json)
+                let theme = try self.json(json: json)
                 self.currentTheme = theme
                 completion(true)
             } catch {
@@ -40,6 +40,26 @@ class PickedCatagoryController {
             
         }
     }
+    
+    fileprivate let phraseKey = "phrases"
+    fileprivate let imageKey = "images"
+    
+        private func json(json: [String: AnyObject]) throws -> PickedCatagory {
+    
+    
+            guard let phrases = json[phraseKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: phraseKey)}
+            
+    
+            guard let imageString = json[imageKey] as? [String] else { throw FirebaseController.ParseError.valueNotFound(key: imageKey)}
+    
+    //        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
+    
+            
+            //TODO: convet one image from the theme after randomly picked
+            
+            return PickedCatagory(phrases: phrases, themeImages: imageString)
+        }
+
 
     
     func getRandomNum(_ array: NSArray) {

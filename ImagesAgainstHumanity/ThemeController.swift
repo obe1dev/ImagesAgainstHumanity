@@ -27,7 +27,7 @@ class ThemeController {
             self.themes = []
             for json in jsonArray {
                 do {
-                    let theme = try Theme(json: json)
+                    let theme = try self.json(json: json)
                     self.themes.append(theme)
                 } catch {
                     print("Error parsing theme: \(json)")
@@ -37,6 +37,25 @@ class ThemeController {
             completion(true)
             
         }
+        
+    }
+    
+    fileprivate let nameKey = "name"
+    fileprivate let imageKey = "image"
+    
+   private func json(json: [String: AnyObject]) throws -> Theme {
+        
+        guard let name = json[self.nameKey] as? String else { throw FirebaseController.ParseError.valueNotFound(key:self.nameKey) }
+        //self.name = name
+        guard let imageString = json[self.imageKey] as? String else { throw FirebaseController.ParseError.valueNotFound(key: self.imageKey) }
+        
+        let decodedData = Data(base64Encoded: imageString, options: NSData.Base64DecodingOptions(rawValue: 0))
+        
+        let coverImage = UIImage(data: decodedData!)!
+        
+       return Theme(name: name, coverImage: coverImage)
+        
+        
         
     }
     
