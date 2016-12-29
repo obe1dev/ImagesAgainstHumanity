@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class PickedCatagoryController {
     
@@ -16,6 +17,21 @@ class PickedCatagoryController {
     fileprivate(set) var currentTheme: PickedCatagory?
     var randomNum: Int = 0
     var pickedImage = UIImage()
+    var ThemeData: [PickedCatagory] {
+        
+        //create fetch request for PickedCatagory objects
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PickedCatagory")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        do {
+            // calls the PickedCatagory objects.
+            return try appDelegate.managedObjectContext.fetch(request) as! [PickedCatagory]
+            } catch {
+            //if there is an error or there are no saved objects return empty array
+            return []
+        }
+    }
     
     func fetchThemeData( completion: @escaping (_ success: Bool) -> Void){
         
@@ -54,8 +70,6 @@ class PickedCatagoryController {
     
     //        let decodedData = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))
     
-            
-            //TODO: convet one image from the theme after randomly picked
             
             return PickedCatagory(phrases: phrases, themeImages: imageString)
         }

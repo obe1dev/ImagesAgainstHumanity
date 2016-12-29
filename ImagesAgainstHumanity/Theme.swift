@@ -45,7 +45,10 @@ class Theme: NSManagedObject {
 //        
 //    }
     
-    convenience init(name: String, coverImage: UIImage, timestamp: Date = Date(), context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+    convenience init(name: String, coverImage: UIImage) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.managedObjectContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Theme", in: context)!
         

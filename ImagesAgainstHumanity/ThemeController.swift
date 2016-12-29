@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ThemeController {
     
@@ -16,28 +17,68 @@ class ThemeController {
     fileprivate(set) var themes = [Theme]()
     fileprivate(set) var currentTheme: Theme?
     var themeImage = UIImage()
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var storedThemes: [Theme] {
+        
+        //create fetch request for Theme objects
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Theme")
+        
+        
+        
+        do {
+            // calls the Theme objects.
+            
+            return try appDelegate.managedObjectContext.fetch(request) as! [Theme]
+
+        } catch {
+            //if there is an error or there are no saved objects return empty array
+            return []
+        }
+    }
 
     
     func fetchAllThemes(completion:@escaping (_ success: Bool) -> Void){
+        
+        self.themes = self.storedThemes
     
         FirebaseController.sharedController.getThemes { (data) in
             
             guard let jsonArray = data as? [[String: AnyObject]] else { completion(false); return }
             
-            self.themes = []
+            var tempThemes = [Theme]()
+            //self.themes = []
             for json in jsonArray {
                 do {
                     let theme = try self.json(json: json)
-                    self.themes.append(theme)
+                    tempThemes.append(theme)
+                    //self.themes.append(theme)
                 } catch {
                     print("Error parsing theme: \(json)")
                 }
+            }
+            
+            if(self.storedThemes.count < tempThemes.count){
+               
+                self.themes = tempThemes
+                self.saveToPersistentStorage()
+                
             }
             
             completion(true)
             
         }
         
+    }
+    
+    func saveToPersistentStorage() {
+        
+        do {
+            try appDelegate.managedObjectContext.save()
+        } catch {
+            print("Error saving Managed Object Context. Items not saved.")
+        }
     }
     
     fileprivate let nameKey = "name"
@@ -58,6 +99,8 @@ class ThemeController {
         
         
     }
+    
+    
     
 //    func getNextImage(completion: (image: ImageModelObject?) -> Void) {
     

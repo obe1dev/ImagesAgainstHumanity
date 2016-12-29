@@ -18,7 +18,10 @@ class PickedCatagory: NSManagedObject {
     fileprivate let phraseKey = "phrases"
     fileprivate let imageKey = "images"
     
-    convenience init(phrases: [String], themeImages: [String], context: NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
+    convenience init(phrases: [String], themeImages: [String]) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.managedObjectContext
         
         let entity = NSEntityDescription.entity(forEntityName: "PickedCatagory", in: context)!
         

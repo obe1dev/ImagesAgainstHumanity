@@ -18,7 +18,6 @@
 		475F3B991CA32DC90040FF73 /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F3B981CA32DC90040FF73 /* ThemeController.swift */; };
 		4762B8E81C8E36AA0008BBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */; };
 		4762B8ED1C8E36AA0008BBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8EB1C8E36AA0008BBD3 /* Main.storyboard */; };
-		4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */; };
 		4762B8F21C8E36AA0008BBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */; };
 		4762B8F51C8E36AA0008BBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */; };
 		4762B9001C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B8FF1C8E36AA0008BBD3 /* ImagesAgainstHumanityTests.swift */; };
@@ -32,9 +31,8 @@
 		4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */; };
 		4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */; };
 		4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */; };
-		476C14011E0B180800948196 /* CoreDataTheme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 476C13FF1E0B180800948196 /* CoreDataTheme.xcdatamodeld */; };
+		476C14011E0B180800948196 /* ImagesAgainstHumanity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 476C13FF1E0B180800948196 /* ImagesAgainstHumanity.xcdatamodeld */; };
 		476C140C1E0B1B8400948196 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476C140B1E0B1B8400948196 /* CoreData.framework */; };
-		476C140E1E0B1CDD00948196 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476C140D1E0B1CDD00948196 /* Stack.swift */; };
 		4771AEFB1CB5FD480029B95E /* PickedCatagory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */; };
 		4771AEFD1CB5FF940029B95E /* PickedCatagoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */; };
 		4771AEFF1CC6C1B60029B95E /* WinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4771AEFE1CC6C1B60029B95E /* WinnerController.swift */; };
@@ -64,7 +62,6 @@
 		4762B8E41C8E36AA0008BBD3 /* ImagesAgainstHumanity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagesAgainstHumanity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4762B8EC1C8E36AA0008BBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4762B8EF1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagesAgainstHumanity.xcdatamodel; sourceTree = "<group>"; };
 		4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4762B8F41C8E36AA0008BBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4762B8F61C8E36AA0008BBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,9 +78,8 @@
 		4762B9561C976F2F0008BBD3 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4762B9581C9884A90008BBD3 /* PassOrPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassOrPlayViewController.swift; sourceTree = "<group>"; };
 		4762B95A1C99F4FE0008BBD3 /* CenterCellCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionView.swift; sourceTree = "<group>"; };
-		476C14001E0B180800948196 /* CoreDataTheme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTheme.xcdatamodel; sourceTree = "<group>"; };
+		476C14001E0B180800948196 /* ImagesAgainstHumanity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagesAgainstHumanity.xcdatamodel; sourceTree = "<group>"; };
 		476C140B1E0B1B8400948196 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		476C140D1E0B1CDD00948196 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagory.swift; sourceTree = "<group>"; };
 		4771AEFC1CB5FF940029B95E /* PickedCatagoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickedCatagoryController.swift; sourceTree = "<group>"; };
 		4771AEFE1CC6C1B60029B95E /* WinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerController.swift; sourceTree = "<group>"; };
@@ -150,7 +146,6 @@
 		4762B8E61C8E36AA0008BBD3 /* ImagesAgainstHumanity */ = {
 			isa = PBXGroup;
 			children = (
-				476C140D1E0B1CDD00948196 /* Stack.swift */,
 				4762B8E71C8E36AA0008BBD3 /* AppDelegate.swift */,
 				4762B9441C9117D90008BBD3 /* Model */,
 				4762B9461C972E0D0008BBD3 /* Controllers */,
@@ -160,7 +155,6 @@
 				4762B8F11C8E36AA0008BBD3 /* Assets.xcassets */,
 				4762B8F31C8E36AA0008BBD3 /* LaunchScreen.storyboard */,
 				4762B8F61C8E36AA0008BBD3 /* Info.plist */,
-				4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */,
 				475F3B931CA1F7D40040FF73 /* Frameworks */,
 			);
 			path = ImagesAgainstHumanity;
@@ -178,7 +172,7 @@
 		4762B9441C9117D90008BBD3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				476C13FF1E0B180800948196 /* CoreDataTheme.xcdatamodeld */,
+				476C13FF1E0B180800948196 /* ImagesAgainstHumanity.xcdatamodeld */,
 				471116631C9A446B00C3FFA1 /* Theme.swift */,
 				4771AEFA1CB5FD480029B95E /* PickedCatagory.swift */,
 			);
@@ -336,7 +330,6 @@
 				4762B90D1C8E37450008BBD3 /* ThemeCollectionViewController.swift in Sources */,
 				4762B95B1C99F4FE0008BBD3 /* CenterCellCollectionView.swift in Sources */,
 				4762B9591C9884A90008BBD3 /* PassOrPlayViewController.swift in Sources */,
-				4762B8F01C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
 				4771AF1F1CCB2A570029B95E /* AppearanceController.swift in Sources */,
 				4762B9151C8E49560008BBD3 /* CaptionTableViewCell.swift in Sources */,
 				4762B9131C8E491A0008BBD3 /* PickCaptionTableViewController.swift in Sources */,
@@ -349,8 +342,7 @@
 				475F3B971CA1FC200040FF73 /* FirebaseController.swift in Sources */,
 				471116641C9A446B00C3FFA1 /* Theme.swift in Sources */,
 				4762B9551C976F0E0008BBD3 /* JSSAlertView.swift in Sources */,
-				476C140E1E0B1CDD00948196 /* Stack.swift in Sources */,
-				476C14011E0B180800948196 /* CoreDataTheme.xcdatamodeld in Sources */,
+				476C14011E0B180800948196 /* ImagesAgainstHumanity.xcdatamodeld in Sources */,
 				4762B9491C97349F0008BBD3 /* WinnerViewController.swift in Sources */,
 				4762B9571C976F2F0008BBD3 /* ThemeCollectionViewCell.swift in Sources */,
 				4762B9531C9769150008BBD3 /* PhraseTableViewCell.swift in Sources */,
@@ -578,23 +570,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4762B8EE1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodeld */ = {
+		476C13FF1E0B180800948196 /* ImagesAgainstHumanity.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4762B8EF1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodel */,
+				476C14001E0B180800948196 /* ImagesAgainstHumanity.xcdatamodel */,
 			);
-			currentVersion = 4762B8EF1C8E36AA0008BBD3 /* ImagesAgainstHumanity.xcdatamodel */;
+			currentVersion = 476C14001E0B180800948196 /* ImagesAgainstHumanity.xcdatamodel */;
 			path = ImagesAgainstHumanity.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		476C13FF1E0B180800948196 /* CoreDataTheme.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				476C14001E0B180800948196 /* CoreDataTheme.xcdatamodel */,
-			);
-			currentVersion = 476C14001E0B180800948196 /* CoreDataTheme.xcdatamodel */;
-			path = CoreDataTheme.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
